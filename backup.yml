@@ -1,6 +1,6 @@
 ---
 - name: Install PBS and kopia
-  hosts: all
+  hosts: backup_server
 
   include_vars:
     - private_vars.yml

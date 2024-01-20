@@ -1,6 +1,6 @@
 ---
 - name: Install Pi-Hole
-  hosts: all
+  hosts: pi_hole
 
   include_vars:
     - private_vars.yml

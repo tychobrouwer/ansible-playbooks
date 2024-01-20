@@ -1,6 +1,6 @@
 ---
 - name: Install Gitea
-  hosts: all
+  hosts: gitea
 
   include_vars:
     - private_vars.yml

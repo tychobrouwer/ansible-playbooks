@@ -1,6 +1,6 @@
 ---
 - name: Install Lighttpd for portfolio
-  hosts: all
+  hosts: proxmox
 
   include_vars:
     - private_vars.yml

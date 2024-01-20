@@ -1,6 +1,6 @@
 ---
 - name: Install Wireguard
-  hosts: all
+  hosts: wireguard
 
   include_vars:
     - private_vars.yml

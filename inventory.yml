@@ -1,0 +1,44 @@
+---
+all:
+  hosts:
+    proxmox:
+      ansible_host: 192.168.1.100
+  children:
+    infrastructure:
+      hosts:
+        pi_hole:
+          ansible_host: 192.168.1.101
+        wireguard:
+          ansible_host: 192.168.1.102
+        portainer:
+          ansible_host: 192.168.1.103
+        smb_share:
+          ansible_host: 192.168.1.104
+        torrent:
+          ansible_host: 192.168.1.105
+        website:
+          ansible_host: 192.168.1.106
+        media_manager:
+          ansible_host: 192.168.1.107
+        backup_server:
+          ansible_host: 192.168.1.108
+        gitea:
+          ansible_host: 192.168.1.109
+        libre_photos:
+          ansible_host: 192.168.1.110
+    entertainment:
+      hosts:
+        jellyfin:
+          ansible_host: 192.168.1.111
+        factorio:
+          ansible_host: 192.168.1.112
+        minecraft:
+          ansible_host: 192.168.1.113
+        ark_survival:
+          ansible_host: 192.168.1.114
+    projects:
+      hosts:
+        accontroller:
+          ansible_host: 192.168.1.121
+  vars:
+    ansible_user: root

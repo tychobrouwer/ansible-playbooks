@@ -1,6 +1,6 @@
 ---
 - name: Install Jellyfin
-  hosts: all
+  hosts: jellyfin
 
   include_vars:
     - private_vars.yml

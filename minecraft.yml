@@ -1,6 +1,6 @@
 ---
 - name: Install Minecraft
-  hosts: all
+  hosts: minecraft
 
   include_vars:
     - private_vars.yml
