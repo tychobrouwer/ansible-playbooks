@@ -3,6 +3,7 @@
   hosts: gitea
 
   vars_files:
+    - vars.yml
     - private_vars.yml
 
   roles:
