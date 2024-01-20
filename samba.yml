@@ -37,6 +37,7 @@
         - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
+        - { src: /rpool-main/media-share/Transcodes, dest: /share/media-share/Transcodes }
       lxc_mount_lxc_id: 104
       lxc_mount_users: [sambauser]
 

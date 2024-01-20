@@ -16,8 +16,6 @@
         - https://networkcalc.com/api/dns/lookup/skyhook.sonarr.tv
         - https://networkcalc.com/api/dns/lookup/apt.sonarr.tv
 
-    - role: tychobrouwer.arrs
-
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
@@ -25,9 +23,18 @@
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
       lxc_mount_lxc_id: 107
-      lxc_mount_users: [prowlarr, radarr, sonarr]
+
+    - role: tychobrouwer.arrs
+      arrs_media_owner: mountuser
 
   tasks:
+    - name: Ensure arrs user a re in mountuser group
+      ansible.builtin.user:
+        name: "{{ item }}"
+        groups: mountuser
+        append: true
+      with_items: [prowlarr, radarr, sonarr]
+
     - name: Set journald log size
       ansible.builtin.lineinfile:
         path: /etc/subuid
