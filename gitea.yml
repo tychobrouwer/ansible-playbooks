@@ -1,0 +1,20 @@
+---
+- name: Install Gitea
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.gitea
+      gitea_app_name: "Gitea | Tycho Brouwer"
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

@@ -1,0 +1,37 @@
+---
+- name: Install Lighttpd for portfolio
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.git
+      git_name: "{{ git_name }}"
+      git_email: "{{ git_email }}"
+
+    - role: tychobrouwer.lighttpd
+      lighttpd_git_source: https://github.com/TychoBrouwer/personal-website-elm.git
+      lighttpd_website_name: portfolio
+      lighttpd_server_address: https://{{ domain }}
+      lighttpd_rules:
+        - |
+          url.rewrite-once = (
+            "^/(dist|images|api)/(.*)$" =>      "/$1/$2",
+            "^/robots.txt$"             =>      "/robots.txt",
+            ".*"                        =>      "/"
+          )
+        - |
+          url.redirect = (
+            "^/(projects)$"             =>      "/index.html"
+          )
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

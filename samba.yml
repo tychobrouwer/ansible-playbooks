@@ -1,0 +1,48 @@
+---
+- name: Install Samba
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.samba
+      samba_username: sambauser
+      samba_shares:
+        - name: file_share
+          comment: private file share
+          path: /share/file-share
+          writable: "yes"
+          browsable: "yes"
+          inherit_permissions: "yes"
+          force_user: sambauser
+          force_group: sambauser
+        - name: media_share
+          comment: private media share
+          path: /share/media-share
+          writable: "yes"
+          browsable: "yes"
+          inherit_permissions: "yes"
+          force_user: sambauser
+          force_group: sambauser
+
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: true
+      lxc_mount_mounts:
+        - { src: /media/file-share, dest: /share/file-share }
+        - { src: /rpool-main/media-share, dest: /share/media-share }
+        - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
+        - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
+        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
+      lxc_mount_lxc_id: 104
+      lxc_mount_users: [sambauser]
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

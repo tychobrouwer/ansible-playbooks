@@ -1,0 +1,30 @@
+---
+- name: Install qBittorrent
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.nordvpn
+      nordvpn_server: nl900.nordvpn.com.udp1194
+
+    - role: tychobrouwer.qbittorrent-nox
+      qbittorrent_nox_user_name: qbittorrent
+
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: true
+      lxc_mount_mounts:
+        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
+      lxc_mount_lxc_id: 105
+      lxc_mount_users: [qbittorrent]
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

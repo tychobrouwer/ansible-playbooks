@@ -1,0 +1,25 @@
+---
+- name: Install Wireguard
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.wireguard
+      wireguard_host_address: 10.6.0.1/24
+      wireguard_peers:
+        - public_key: "{{ wireguard_laptop_public_key }}"
+          allowed_ips: 10.6.0.2/32
+        - public_key: "{{ wireguard_phone_public_key }}"
+          allowed_ips: 10.6.0.3/32
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

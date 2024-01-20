@@ -1,0 +1,35 @@
+---
+- name: Install Pi-Hole
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.nordvpn
+      nordvpn_server: nl900.nordvpn.com.udp1194
+      nordvpn_route_nopull: true
+      nordvpn_additional_route_addresses:
+        - https://networkcalc.com/api/dns/lookup/skyhook.sonarr.tv
+        - https://networkcalc.com/api/dns/lookup/apt.sonarr.tv
+
+    - role: tychobrouwer.arrs
+
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: true
+      lxc_mount_mounts:
+        - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
+        - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
+        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
+      lxc_mount_lxc_id: 107
+      lxc_mount_users: [prowlarr, radarr, sonarr]
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

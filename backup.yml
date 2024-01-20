@@ -1,0 +1,32 @@
+---
+- name: Install PBS and kopia
+  hosts: all
+
+  include_vars:
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.pbs
+
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: true
+      lxc_mount_mounts:
+        - { src: /mnt/data2/pbs-dumps, dest: /mnt/pbs-dumps }
+        - { src: /mnt/data2/backups, dest: /mnt/backups }
+      lxc_mount_lxc_id: 108
+      lxc_mount_users: [backup]
+
+    - role: tychobrouwer.kopia
+      kopia_path: /mnt/backups
+      kopia_user_uid: 3500
+      kopia_group_gid: 3500
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/subuid
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"
