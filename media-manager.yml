@@ -2,7 +2,7 @@
 - name: Install Pi-Hole
   hosts: media_manager
 
-  include_vars:
+  vars_files:
     - private_vars.yml
 
   roles:

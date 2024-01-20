@@ -2,7 +2,7 @@
 - name: Install Samba
   hosts: smb_share
 
-  include_vars:
+  vars_files:
     - private_vars.yml
 
   roles:

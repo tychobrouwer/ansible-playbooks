@@ -2,7 +2,7 @@
 - name: Install qBittorrent
   hosts: torrent
 
-  include_vars:
+  vars_files:
     - private_vars.yml
 
   roles:

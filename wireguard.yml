@@ -2,7 +2,7 @@
 - name: Install Wireguard
   hosts: wireguard
 
-  include_vars:
+  vars_files:
     - private_vars.yml
 
   roles:
