@@ -6,6 +6,19 @@
     - vars.yml
     - private_vars.yml
 
+  pre_tasks:
+    - name: Get configs on remote
+      ansible.builtin.template:
+        src: templates/"{{ item.src }}"
+        dest: "{{ item.dest }}"
+        mode: "0644"
+        owner: root
+        group: root
+      with_items:
+        - { src: authelia-config.yaml.j2, dest: /root/authelia-config/configuration.yaml }
+        - { src: dashy-conf.yaml.j2,      dest: /root/dashy-conf.yaml }
+        - { src: traefik-dynamic.yaml.j2, dest: /root/traefik-dynamic.yaml }
+
   roles:
     - role: tychobrouwer.ssh
 
@@ -28,7 +41,7 @@
       arrs_media_owner: mountuser
 
   tasks:
-    - name: Ensure arrs user a re in mountuser group
+    - name: Ensure arrs users are in mountuser group
       ansible.builtin.user:
         name: "{{ item }}"
         groups: mountuser
