@@ -23,6 +23,6 @@ portainer_grafana:
   admin_user: admin
 
 portainer_passbolt:
-  description: ""
+  description: Passbolt | Tycho Brouwer
   user_surname: brouwer
   user_name: tycho
