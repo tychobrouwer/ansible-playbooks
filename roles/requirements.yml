@@ -16,7 +16,7 @@ roles:
   - name: tychobrouwer.pihole
   - name: tychobrouwer.portainer
   - name: tychobrouwer.proxmox
-  - name: tychobrouwer.qbittorrent
+  - name: tychobrouwer.qbittorrent_nox
   - name: tychobrouwer.samba
   - name: tychobrouwer.ssh
   - name: tychobrouwer.upgrade_packages
