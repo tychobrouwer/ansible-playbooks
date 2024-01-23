@@ -3,26 +3,3 @@ domain: tbrouwer.com
 git_name: Tycho Brouwer
 
 ssh_port: 22
-
-portainer_root_domain: tbrouwer.com
-
-portainer_traefik:
-  additional_volumes:
-    - /root/cert-proxmox.crt:/root/cert-proxmox.crt:ro
-    - /root/tbrouwer-cloudflare-origin.cert:/root/tbrouwer-cloudflare-origin.cert:ro
-    - /root/tbrouwer-cloudflare-origin.key:/root/tbrouwer-cloudflare-origin.key:ro
-
-portainer_dashy:
-  description: "Dashboard | Tycho Brouwer"
-
-portainer_authelia:
-  user_name: tycho
-  display_name: Tycho Brouwer
-
-portainer_grafana:
-  admin_user: admin
-
-portainer_passbolt:
-  description: Passbolt | Tycho Brouwer
-  user_surname: brouwer
-  user_name: tycho

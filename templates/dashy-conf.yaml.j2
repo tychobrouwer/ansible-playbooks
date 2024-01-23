@@ -69,7 +69,7 @@ sections:
     items:
       - title: Proxmox VE
         icon: hl-proxmox
-        url: "https://pve.{{ portainer_root_domain }}/#v1:0:=node%2Fpve:4:5::::::"
+        url: https://pve.{{ portainer_root_domain }}/#v1:0:=node%2Fpve:4:5::::::
         statusCheck: true
         statusCheckUrl: https://192.168.1.100:8006
         statusCheckAllowInsecure: true
@@ -206,8 +206,9 @@ sections:
 
       - title: Linkedin
         icon: hl-linkedin
-        url: {{ dashy_linkedin }}
-        
+        url: https://www.linkedin.com/in/tycho-brouwer-6306ba274
+        dashy_description: www.tbrouwer.com
+
       - title: IMDB
         icon: favicon
         url: https://www.imdb.com/
@@ -278,14 +279,13 @@ sections:
     icon: fas fa-code
     displayData:
       itemCountX: 2
-
     items:
       - title: GitHub
-        url: {{ dashy_github }}
+        url: https://github.com/TychoBrouwer?tab=repositories/
         icon: hl-github-light
 
       - title: Gitea
-        url: {{ dashy_gitea }}
+        url: https://gitea.{{ root_portainer_root_domain }}/
         icon: hl-gitea
         statusCheck: true
         statusCheckUrl: http://192.168.1.109:3000
@@ -307,11 +307,11 @@ sections:
         icon: hl-chatgpt
 
       - title: Docker.io
-        url: {{ dashy_docker }}
+        url: https://hub.docker.com/repositories/tychobrouwer
         icon: hl-docker
 
       - title: npm
-        url: {{ dashy_npm }}
+        url: https://www.npmjs.com/~tbrouwer
         icon: favicon
 
       - title: Font Awesome

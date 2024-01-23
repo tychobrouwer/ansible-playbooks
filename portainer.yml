@@ -1,0 +1,40 @@
+---
+- name: Install Portainer
+  hosts: portainer
+
+  vars_files:
+    - vars.yml
+    - private_vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.portainer
+      portainer_root_domain: tbrouwer.com
+      portainer_traefik:
+        additional_volumes:
+          - /root/cert-proxmox.crt:/root/cert-proxmox.crt:ro
+          - /root/tbrouwer-cloudflare-origin.cert:/root/tbrouwer-cloudflare-origin.cert:ro
+          - /root/tbrouwer-cloudflare-origin.key:/root/tbrouwer-cloudflare-origin.key:ro
+      portainer_dashy:
+        description: "Dashboard | Tycho Brouwer"
+      portainer_authelia:
+        user_name: tycho
+        display_name: Tycho Brouwer
+      portainer_grafana:
+        admin_user: admin
+      portainer_passbolt:
+        description: Passbolt | Tycho Brouwer
+        user_surname: brouwer
+        user_name: tycho
+      portainer_authelia_config_template_path: templates/authelia-config.yaml.j2
+      portainer_dashy_config_template_path: templates/dashy-conf.yaml.j2
+      portainer_traefik_dynamic_template_path: templates/traefik-dynamic.yaml.j2
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

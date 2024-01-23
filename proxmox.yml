@@ -1,5 +1,5 @@
 ---
-- name: Install Lighttpd for portfolio
+- name: Configure Proxmox for services
   hosts: proxmox
 
   vars_files:

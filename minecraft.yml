@@ -16,7 +16,7 @@
   tasks:
     - name: Set journald log size
       ansible.builtin.lineinfile:
-        path: /etc/subuid
+        path: /etc/systemd/journald.conf
         line: SystemMaxUse=512M
         regexp: ^SystemMaxUse=
         insertafter: "[Journal]"

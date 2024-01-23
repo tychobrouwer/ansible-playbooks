@@ -1,23 +1,10 @@
 ---
-- name: Install Pi-Hole
+- name: Install arr services
   hosts: media_manager
 
   vars_files:
     - vars.yml
     - private_vars.yml
-
-  pre_tasks:
-    - name: Get configs on remote
-      ansible.builtin.template:
-        src: templates/"{{ item.src }}"
-        dest: "{{ item.dest }}"
-        mode: "0644"
-        owner: root
-        group: root
-      with_items:
-        - { src: authelia-config.yaml.j2, dest: /root/authelia-config/configuration.yaml }
-        - { src: dashy-conf.yaml.j2,      dest: /root/dashy-conf.yaml }
-        - { src: traefik-dynamic.yaml.j2, dest: /root/traefik-dynamic.yaml }
 
   roles:
     - role: tychobrouwer.ssh
@@ -50,7 +37,7 @@
 
     - name: Set journald log size
       ansible.builtin.lineinfile:
-        path: /etc/subuid
+        path: /etc/systemd/journald.conf
         line: SystemMaxUse=512M
         regexp: ^SystemMaxUse=
         insertafter: "[Journal]"
