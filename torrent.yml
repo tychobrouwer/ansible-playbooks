@@ -12,7 +12,7 @@
     - role: tychobrouwer.nordvpn
       nordvpn_server: nl900.nordvpn.com.udp1194
 
-    - role: tychobrouwer.qbittorrent-nox
+    - role: tychobrouwer.qbittorrent_nox
       qbittorrent_nox_user_name: qbittorrent
 
     - role: tychobrouwer.lxc_mount
