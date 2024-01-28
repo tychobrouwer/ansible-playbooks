@@ -1,6 +1,6 @@
 ---
 - name: Install Pi-Hole
-  hosts: pi_hole
+  hosts: pi-hole
 
   vars_files:
     - vars.yml

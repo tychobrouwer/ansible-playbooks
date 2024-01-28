@@ -1,6 +1,6 @@
 ---
 - name: Install arr services
-  hosts: media_manager
+  hosts: media-manager
 
   vars_files:
     - vars.yml

@@ -1,6 +1,6 @@
 ---
 - name: Configure Proxmox for services
-  hosts: proxmox
+  hosts: pve
 
   vars_files:
     - vars.yml

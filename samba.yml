@@ -1,6 +1,6 @@
 ---
 - name: Install Samba
-  hosts: smb_share
+  hosts: smb-share
 
   vars_files:
     - vars.yml
