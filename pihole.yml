@@ -1,10 +1,10 @@
 ---
 - name: Install Pi-Hole
-  hosts: pi-hole
+  hosts: pi-hole-2
 
   vars_files:
     - vars.yml
-    - private_vars.yml
+    - private-vars.yml
 
   roles:
     - role: tychobrouwer.ssh
