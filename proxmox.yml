@@ -63,3 +63,15 @@
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
         - { src: /rpool-main/media-share/Transcodes, dest: /share/media-share/Transcodes }
       lxc_mount_lxc_id: 111
+
+  tasks:
+    - name: Add configs for VPN in lxc
+      ansible.builtin.blockinfile:
+        block: |
+          lxc.cgroup2.devices.allow: c 10:200 rwm
+          lxc.mount.entry: /dev/net dev/net none bind,create=dir
+        path: /etc/pve/lxc/{{ item }}.conf
+        marker: "# {mark} ANSIBLE MANAGED BLOCK vpn"
+        insertafter: "EOF"
+      with_items:
+        - 105

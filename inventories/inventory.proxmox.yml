@@ -11,12 +11,12 @@ password: !vault |
   3164653637393639310a616463313862616332643133363565356161383034376364666366353033
   64313863323234336432633563366538393534633536353830313037333738376535
 validate_certs: false
-want_proxmox_nodes_ansible_host: false
 
 want_facts: true
 compose:
-  ansible_host: proxmox_ipconfig0.ip | default(proxmox_net0.ip) | regex_replace('/.*', '')
+  ansible_host: proxmox_net0.ip | default(proxmox_ipconfig0.ip) | ansible.utils.ipaddr('address')
   ansible_user: "'root'"
+  ansible_port: 22
 
 groups:
   debian: "proxmox_ostype == 'debian'"

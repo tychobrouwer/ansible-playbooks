@@ -14,6 +14,7 @@
 
     - role: tychobrouwer.qbittorrent_nox
       qbittorrent_nox_user_name: qbittorrent
+      qbittorrent_nox_torrent_path: /share/media-share/Torrents
 
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: true
