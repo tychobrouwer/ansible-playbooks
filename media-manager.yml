@@ -4,7 +4,7 @@
 
   vars_files:
     - vars.yml
-    - private-vars.yml
+    - private_vars.yml
 
   roles:
     - role: tychobrouwer.ssh
@@ -33,7 +33,7 @@
         name: "{{ item }}"
         groups: mountuser
         append: true
-      with_items: [prowlarr, radarr, sonarr, readarr]
+      with_items: [prowlarr, radarr, sonarr]
 
     - name: Set journald log size
       ansible.builtin.lineinfile:

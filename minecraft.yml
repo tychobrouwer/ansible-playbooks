@@ -4,7 +4,7 @@
 
   vars_files:
     - vars.yml
-    - private-vars.yml
+    - private_vars.yml
 
   roles:
     - role: tychobrouwer.ssh
