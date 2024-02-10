@@ -4,13 +4,13 @@
 
   vars_files:
     - vars.yml
-    - private-vars.yml
+    - private_vars.yml
 
   roles:
     - role: tychobrouwer.ssh
 
     - role: tychobrouwer.wireguard
-      wireguard_host_address: 10.6.0.1/32
+      wireguard_host_address: 10.6.0.1/24
       wireguard_peers:
         - public_key: "{{ wireguard_laptop_public_key }}"
           allowed_ips: 10.6.0.2/32
