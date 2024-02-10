@@ -1,24 +1,24 @@
 ---
 roles:
-  - name: tychobrouwer.ark_survival
-  - name: tychobrouwer.arrs
-  - name: tychobrouwer.factorio
-  - name: tychobrouwer.git
-  - name: tychobrouwer.gitea
-  - name: tychobrouwer.jellyfin
-  - name: tychobrouwer.kopia
-  - name: tychobrouwer.lighttpd
-  - name: tychobrouwer.lxc_mount
-  - name: tychobrouwer.lxc_nvidia
-  - name: tychobrouwer.lxc_start
-  - name: tychobrouwer.minecraft
-  - name: tychobrouwer.nordvpn
-  - name: tychobrouwer.pbs
-  - name: tychobrouwer.pihole
+  # - name: tychobrouwer.ark_survival
+  # - name: tychobrouwer.arrs
+  # - name: tychobrouwer.factorio
+  # - name: tychobrouwer.git
+  # - name: tychobrouwer.gitea
+  # - name: tychobrouwer.jellyfin
+  # - name: tychobrouwer.kopia
+  # - name: tychobrouwer.lighttpd
+  # - name: tychobrouwer.lxc_mount
+  # - name: tychobrouwer.lxc_nvidia
+  # - name: tychobrouwer.lxc_start
+  # - name: tychobrouwer.minecraft
+  # - name: tychobrouwer.nordvpn
+  # - name: tychobrouwer.pbs
+  # - name: tychobrouwer.pihole
   - name: tychobrouwer.portainer
-  - name: tychobrouwer.proxmox
-  - name: tychobrouwer.qbittorrent_nox
-  - name: tychobrouwer.samba
-  - name: tychobrouwer.ssh
-  - name: tychobrouwer.upgrade_packages
-  - name: tychobrouwer.wireguard
+  # - name: tychobrouwer.proxmox
+  # - name: tychobrouwer.qbittorrent_nox
+  # - name: tychobrouwer.samba
+  # - name: tychobrouwer.ssh
+  # - name: tychobrouwer.upgrade_packages
+  # - name: tychobrouwer.wireguard

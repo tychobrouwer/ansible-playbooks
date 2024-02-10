@@ -26,6 +26,17 @@
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
+        - { src: /media/docker_volumes, dest: /var/lib/docker/volumes }
+      lxc_mount_lxc_id: 132
+      lxc_mount_user_uid: 100000
+      lxc_mount_user_gid: 100000
+      lxc_mount_user_name: root
+      lxc_mount_user_group: root
+      lxc_mount_permissions: 0701
+
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: false
+      lxc_mount_mounts:
         - { src: /media/file-share, dest: /share/file-share }
         - { src: /rpool-main/media-share, dest: /share/media-share }
         - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
@@ -63,3 +74,13 @@
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
         - { src: /rpool-main/media-share/Transcodes, dest: /share/media-share/Transcodes }
       lxc_mount_lxc_id: 111
+
+  tasks:
+    - name: Add configs for VPN in lxc
+      ansible.builtin.lineinfile:
+        path: /etc/pve/lxc/105.conf
+        line: "{{ item }}"
+        regexp: "^{{ item }}"
+      with_items:
+        - "lxc.cgroup2.devices.allow: c 10:200 rwm"
+        - "lxc.mount.entry: /dev/net dev/net none bind,create=dir"

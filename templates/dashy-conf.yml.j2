@@ -69,7 +69,7 @@ sections:
     items:
       - title: Proxmox VE
         icon: hl-proxmox
-        url: https://pve.{{ portainer_root_domain }}/#v1:0:=node%2Fpve:4:5::::::
+        url: "https://pve.{{ portainer_root_domain }}/#v1:0:=node%2Fpve:4:5::::::"
         statusCheck: true
         statusCheckUrl: https://192.168.1.100:8006
         statusCheckAllowInsecure: true
@@ -183,7 +183,7 @@ sections:
         url: https://www.netflix.com/browse
 
       - title: Jellyfin
-        url: https://jellyfin.{{ root_portainer_root_domain }}/web/index.html#!/home.html
+        url: https://jellyfin.{{ portainer_root_domain }}/web/index.html#!/home.html
         icon: hl-jellyfin
         statusCheck: true
         statusCheckUrl: http://192.168.1.111:8096
@@ -285,7 +285,7 @@ sections:
         icon: hl-github-light
 
       - title: Gitea
-        url: https://gitea.{{ root_portainer_root_domain }}/
+        url: https://gitea.{{ portainer_root_domain }}/
         icon: hl-gitea
         statusCheck: true
         statusCheckUrl: http://192.168.1.109:3000
