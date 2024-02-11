@@ -19,10 +19,10 @@
       lxc_mount_lxc_id: 108
       lxc_mount_users: [backup]
 
-    - role: tychobrouwer.kopia
-      kopia_path: /mnt/backups
-      kopia_user_uid: 3500
-      kopia_group_gid: 3500
+    # - role: tychobrouwer.kopia
+    #   kopia_path: /mnt/backups
+    #   kopia_user_uid: 3500
+    #   kopia_group_gid: 3500
 
   tasks:
     - name: Set journald log size

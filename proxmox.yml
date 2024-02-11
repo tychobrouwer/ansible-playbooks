@@ -11,12 +11,11 @@
 
     - role: tychobrouwer.git
 
-    # - role: tychobrouwer.proxmox
-    #   proxmox_pbs_client:
-    #     directories:
-    #       - file-share.pxar:/media/file-share
-    #       - lxc-config.pxar:/etc/pve/lxc
-    #   proxmox_pbs_repository: backup@pbs@192.168.1.108:main
+    - role: tychobrouwer.proxmox
+      proxmox_pbs_client_directories:
+          - file-share.pxar:/media/file-share
+          - lxc-config.pxar:/etc/pve/lxc
+      proxmox_pbs_repository: backup@pbs@192.168.1.108:main
 
     - role: tychobrouwer.lxc_nvidia
       lxc_nvidia_lxc_id: 111
@@ -61,12 +60,12 @@
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
       lxc_mount_lxc_id: 107
 
-    # - role: tychobrouwer.lxc_mount
-    #   lxc_mount_is_lxc: false
-    #   lxc_mount_mounts:
-    #     - { src: /mnt/data2/pbs-dumps, dest: /mnt/pbs-dumps }
-    #     - { src: /mnt/data2/backups, dest: /mnt/backups }
-    #   lxc_mount_lxc_id: 108
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: false
+      lxc_mount_mounts:
+        - { src: /mnt/data2/pbs-dumps, dest: /mnt/pbs-dumps }
+        - { src: /mnt/data2/backups, dest: /mnt/backups }
+      lxc_mount_lxc_id: 108
 
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: false
@@ -78,7 +77,7 @@
       lxc_mount_lxc_id: 111
 
   tasks:
-    - name: Add configs for VPN in lxc
+    - name: Add lxc config entries for VPN
       ansible.builtin.lineinfile:
         path: /etc/pve/lxc/{{ item[0] }}.conf
         line: "{{ item[1] }}"
