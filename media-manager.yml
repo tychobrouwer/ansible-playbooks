@@ -4,7 +4,7 @@
 
   vars_files:
     - vars.yml
-    - private_vars.yml
+    - private-vars.yml
 
   roles:
     - role: tychobrouwer.ssh
@@ -21,6 +21,7 @@
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
+        - { src: /rpool-main/media-share/Books, dest: /share/media-share/Books }
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
       lxc_mount_lxc_id: 107
 
@@ -33,7 +34,7 @@
         name: "{{ item }}"
         groups: mountuser
         append: true
-      with_items: [prowlarr, radarr, sonarr]
+      with_items: [prowlarr, radarr, sonarr, readarr]
 
     - name: Set journald log size
       ansible.builtin.lineinfile:

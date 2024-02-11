@@ -4,7 +4,7 @@
 
   vars_files:
     - vars.yml
-    - private_vars.yml
+    - private-vars.yml
 
   roles:
     - role: tychobrouwer.ssh
@@ -13,7 +13,7 @@
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /share/docker_volumes, dest: /var/lib/docker/volumes }
-      lxc_mount_lxc_id: 132
+      lxc_mount_lxc_id: 103
       lxc_mount_user_uid: 0
       lxc_mount_user_gid: 0
       lxc_mount_user_name: root

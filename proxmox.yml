@@ -4,19 +4,19 @@
 
   vars_files:
     - vars.yml
-    - private_vars.yml
+    - private-vars.yml
 
   roles:
     - role: tychobrouwer.ssh
 
     - role: tychobrouwer.git
 
-    - role: tychobrouwer.proxmox
-      proxmox_pbs_client:
-        directories:
-          - file-share.pxar:/media/file-share
-          - lxc-config.pxar:/etc/pve/lxc
-      proxmox_pbs_repository: backup@pbs@192.168.1.108:main
+    # - role: tychobrouwer.proxmox
+    #   proxmox_pbs_client:
+    #     directories:
+    #       - file-share.pxar:/media/file-share
+    #       - lxc-config.pxar:/etc/pve/lxc
+    #   proxmox_pbs_repository: backup@pbs@192.168.1.108:main
 
     - role: tychobrouwer.lxc_nvidia
       lxc_nvidia_lxc_id: 111
@@ -27,7 +27,7 @@
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
         - { src: /media/docker_volumes, dest: /var/lib/docker/volumes }
-      lxc_mount_lxc_id: 132
+      lxc_mount_lxc_id: 103
       lxc_mount_user_uid: 100000
       lxc_mount_user_gid: 100000
       lxc_mount_user_name: root
@@ -56,15 +56,16 @@
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
+        - { src: /rpool-main/media-share/Books, dest: /share/media-share/Books }
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
       lxc_mount_lxc_id: 107
 
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: false
-      lxc_mount_mounts:
-        - { src: /mnt/data2/pbs-dumps, dest: /mnt/pbs-dumps }
-        - { src: /mnt/data2/backups, dest: /mnt/backups }
-      lxc_mount_lxc_id: 108
+    # - role: tychobrouwer.lxc_mount
+    #   lxc_mount_is_lxc: false
+    #   lxc_mount_mounts:
+    #     - { src: /mnt/data2/pbs-dumps, dest: /mnt/pbs-dumps }
+    #     - { src: /mnt/data2/backups, dest: /mnt/backups }
+    #   lxc_mount_lxc_id: 108
 
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: false
@@ -78,9 +79,9 @@
   tasks:
     - name: Add configs for VPN in lxc
       ansible.builtin.lineinfile:
-        path: /etc/pve/lxc/105.conf
-        line: "{{ item }}"
-        regexp: "^{{ item }}"
-      with_items:
-        - "lxc.cgroup2.devices.allow: c 10:200 rwm"
-        - "lxc.mount.entry: /dev/net dev/net none bind,create=dir"
+        path: /etc/pve/lxc/{{ item[0] }}.conf
+        line: "{{ item[1] }}"
+        regexp: "^{{ item[1] }}"
+      with_nested:
+        - [ 105, 107 ]
+        - [ "lxc.cgroup2.devices.allow: c 10:200 rwm", "lxc.mount.entry: /dev/net dev/net none bind,create=dir" ]
