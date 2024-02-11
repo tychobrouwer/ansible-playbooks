@@ -9,13 +9,6 @@
   roles:
     - role: tychobrouwer.ssh
 
-    # - role: tychobrouwer.nordvpn
-    #   nordvpn_server: nl900.nordvpn.com.udp1194
-    #   nordvpn_route_nopull: true
-    #   nordvpn_additional_route_addresses:
-    #     - https://networkcalc.com/api/dns/lookup/skyhook.sonarr.tv
-    #     - https://networkcalc.com/api/dns/lookup/apt.sonarr.tv
-
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
