@@ -84,5 +84,5 @@
         line: "{{ item[1] }}"
         regexp: "^{{ item[1] }}"
       with_nested:
-        - [ 105, 107 ]
+        - [ 105 ]
         - [ "lxc.cgroup2.devices.allow: c 10:200 rwm", "lxc.mount.entry: /dev/net dev/net none bind,create=dir" ]
