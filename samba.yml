@@ -43,6 +43,20 @@
       lxc_mount_users: [sambauser]
 
   tasks:
+    - name: Install pip
+      ansible.builtin.package:
+        name: python3-pip
+        state: present
+
+    - name: Set pip configuration
+      ansible.builtin.command: pip3 config set global.break-system-packages True
+      changed_when: false
+
+    - name: Install icloudpd python package
+      ansible.builtin.pip:
+        name: icloudpd
+        state: present
+
     - name: Set journald log size
       ansible.builtin.lineinfile:
         path: /etc/systemd/journald.conf
