@@ -216,8 +216,8 @@ http:
 
     www-redirect:
       redirectRegex:
-        regex: "https://{{ portainer_root_domain }}/*"
-        replacement: "https://www.{{ portainer_root_domain }}/*"
+        regex: "https://{{ portainer_root_domain }}/(.*)"
+        replacement: "https://www.{{ portainer_root_domain }}/${1}"
 
     authelia:
       forwardAuth:
