@@ -1,0 +1,20 @@
+---
+- name: Install ansible AWX
+  hosts: backup-server
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.ansible_awx
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"
