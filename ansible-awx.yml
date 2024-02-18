@@ -1,6 +1,6 @@
 ---
 - name: Install ansible AWX
-  hosts: backup-server
+  hosts: ansible-awx
 
   vars_files:
     - vars.yml
