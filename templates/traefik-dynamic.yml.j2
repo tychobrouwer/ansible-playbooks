@@ -132,15 +132,6 @@ http:
       service: gitea
       tls: {}
 
-    librephotos:
-      entryPoints:
-        - web-secure
-      rule: "Host(`librephotos.{{ portainer_root_domain }}`)"
-      middlewares:
-        - authelia
-      service: librephotos
-      tls: {}
-
     jellyfin:
       entryPoints:
         - web-secure
@@ -207,11 +198,6 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.109:3000/"
-
-    librephotos:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.1.110:80/"
 
     jellyfin:
       loadBalancer:
