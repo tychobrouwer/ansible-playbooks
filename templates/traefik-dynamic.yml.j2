@@ -105,6 +105,15 @@ http:
       service: sonarr
       tls: {}
 
+    readarr:
+      entryPoints:
+        - web-secure
+      rule: "Host(`readarr.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: readarr
+      tls: {}
+
     pve-backup:
       entryPoints:
         - web-secure
