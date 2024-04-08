@@ -1,6 +1,6 @@
 ---
-- name: Install Portainer
-  hosts: portainer
+- name: Install Docker
+  hosts: docker
 
   vars_files:
     - vars.yml
@@ -8,17 +8,6 @@
 
   roles:
     - role: tychobrouwer.ssh
-
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: true
-      lxc_mount_mounts:
-        - { src: /media/docker_volumes, dest: /var/lib/docker/volumes }
-      lxc_mount_lxc_id: 103
-      lxc_mount_user_uid: 0
-      lxc_mount_user_gid: 0
-      lxc_mount_user_name: root
-      lxc_mount_user_group: root
-      lxc_mount_permissions: 0701
 
     - role: tychobrouwer.portainer
       portainer_root_domain: tbrouwer.com        

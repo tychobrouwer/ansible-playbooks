@@ -20,7 +20,7 @@
     - role: tychobrouwer.lxc_nvidia
       lxc_nvidia_lxc_id: 111
       lxc_nvidia_is_host: true
-      lxc_nvidia_version: 535.154.05
+      lxc_nvidia_version: "550.67"
 
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: false
