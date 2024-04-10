@@ -1,6 +1,6 @@
 ---
 - name: Install PBS and kopia
-  hosts: backup-server
+  hosts: backup
 
   vars_files:
     - vars.yml
@@ -14,13 +14,13 @@
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
-        - { src: /mnt/data2/pbs-dumps, dest: /mnt/pbs-dumps }
-        - { src: /mnt/data2/backups, dest: /mnt/backups }
+        - { src: /mnt/backup/pbs-dumps, dest: /mnt/pbs-dumps }
+        - { src: /mnt/backup/kopia, dest: /mnt/kopia }
       lxc_mount_lxc_id: 108
       lxc_mount_users: [backup]
 
     - role: tychobrouwer.kopia
-      kopia_path: /mnt/backups
+      kopia_path: /mnt/kopia
       kopia_user_uid: 3500
       kopia_group_gid: 3500
 

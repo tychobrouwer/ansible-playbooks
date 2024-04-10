@@ -161,38 +161,38 @@ http:
     torrent:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.105:8080/"
+          - url: "http://192.168.1.104:8080/"
 
     website:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.106:80/"
+          - url: "http://192.168.1.105:80/"
 
     prowlarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.107:9696/"
+          - url: "http://192.168.1.106:9696/"
 
     radarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.107:7878/"
+          - url: "http://192.168.1.106:7878/"
 
     readarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.107:8787/"
+          - url: "http://192.168.1.106:8787/"
 
     sonarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.107:8989/"
+          - url: "http://192.168.1.106:8989/"
 
     pve-backup:
       loadBalancer:
         serversTransport: "pve-backup"
         servers:
-          - url: "https://192.168.1.108:8007/"
+          - url: "https://192.168.1.107:8007/"
 
     gitea:
       loadBalancer:
@@ -202,7 +202,7 @@ http:
     jellyfin:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.111:8096/"
+          - url: "http://192.168.1.108:8096/"
 
   middlewares:
     addprefix-pihole:

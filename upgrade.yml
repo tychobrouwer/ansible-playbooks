@@ -1,6 +1,8 @@
 ---
 - name: Upgrade container packages
-  hosts: proxmox_all_running
+  hosts:
+    - proxmox_all_running
+    - pve
 
   roles:
     - role: tychobrouwer.upgrade_packages

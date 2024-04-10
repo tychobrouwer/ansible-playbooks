@@ -78,7 +78,7 @@ sections:
         icon: https://avatars.githubusercontent.com/u/4386228?s=200&v=4
         url: https://passbolt.{{ portainer_root_domain }}
         statusCheck: true
-        statusCheckUrl: http://192.168.1.200:4080
+        statusCheckUrl: http://192.168.1.201:4080
         statusCheckAcceptCodes: "401"
 
       - title: Portfolio
@@ -90,7 +90,7 @@ sections:
         icon: hl-grafana
         url: https://grafana.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.200:3000
+        statusCheckUrl: http://192.168.1.201:3000
 
       - title: Pi-Hole
         icon: hl-pi-hole-unbound
@@ -109,55 +109,55 @@ sections:
         icon: hl-portainer
         url: https://portainer.{{ portainer_root_domain }}/#!/2/docker/containers
         statusCheck: true
-        statusCheckUrl: http://192.168.1.200:9000
+        statusCheckUrl: http://192.168.1.201:9000
 
       - title: Sonarr
         url: https://sonarr.{{ portainer_root_domain }}/
         icon: hl-sonarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.107:8989
+        statusCheckUrl: http://192.168.1.106:8989
 
       - title: Radarr
         url: https://radarr.{{ portainer_root_domain }}/
         icon: hl-radarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.107:7878
+        statusCheckUrl: http://192.168.1.106:7878
 
       - title: Readarr
         url: https://readarr.{{ portainer_root_domain }}/
         icon: hl-readarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.107:8787
+        statusCheckUrl: http://192.168.1.106:8787
 
       - title: Prowlarr
         url: https://prowlarr.{{ portainer_root_domain }}/
         icon: hl-prowlarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.107:9696
+        statusCheckUrl: http://192.168.1.106:9696
 
       - title: qBittorrent
         url: https://torrent.{{ portainer_root_domain }}/
         icon: hl-qbittorrent
         statusCheck: true
-        statusCheckUrl: http://192.168.1.105:8080
+        statusCheckUrl: http://192.168.1.104:8080
 
       - title: Traefik
         url: http://portainer.home:8080/
         icon: hl-traefik
         statusCheck: true
-        statusCheckUrl: http://192.168.1.200:8080
+        statusCheckUrl: http://192.168.1.201:8080
 
       - title: InfluxDB
         url: http://portainer.home:8086/
         icon: hl-influxdb
         statusCheck: true
-        statusCheckUrl: http://192.168.1.200:8086
+        statusCheckUrl: http://192.168.1.201:8086
 
       - title: Proxmox Backup
         icon: hl-proxmox
         url: https://pve-backup.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: https://192.168.1.108:8007
+        statusCheckUrl: https://192.168.1.107:8007
         statusCheckAllowInsecure: true
 
       - title: Zyxel Router
@@ -186,7 +186,7 @@ sections:
         url: https://jellyfin.{{ portainer_root_domain }}/web/index.html#!/home.html
         icon: hl-jellyfin
         statusCheck: true
-        statusCheckUrl: http://192.168.1.111:8096
+        statusCheckUrl: http://192.168.1.108:8096
 
       - title: Videoland
         icon: favicon
@@ -207,7 +207,6 @@ sections:
       - title: Linkedin
         icon: hl-linkedin
         url: https://www.linkedin.com/in/tycho-brouwer-6306ba274
-        dashy_description: www.tbrouwer.com
 
       - title: IMDB
         icon: favicon
