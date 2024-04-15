@@ -79,3 +79,10 @@
     - name: Set timezone
       ansible.builtin.command: timedatectl set-timezone Europe/Amsterdam
       changed_when: false
+
+    - name: Add kernel cmd fixes for random crashes
+      ansible.builtin.lineinfile:
+        path: /etc/kernel/cmdline
+        backrefs: yes
+        regexp: "^root=(?!.*idle).*$"
+        line: "\1 idle=nomwait processor.max_cstate=5"
