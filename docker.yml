@@ -36,3 +36,7 @@
         line: SystemMaxUse=512M
         regexp: ^SystemMaxUse=
         insertafter: "[Journal]"
+
+    - name: Set timezone
+      ansible.builtin.command: timedatectl set-timezone Europe/Amsterdam
+      changed_when: false
