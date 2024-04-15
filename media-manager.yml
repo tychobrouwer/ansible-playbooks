@@ -1,4 +1,21 @@
 ---
+- name: Apply Proxmox config
+  hosts: pve
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: false
+      lxc_mount_mounts:
+        - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
+        - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
+        - { src: /rpool-main/media-share/Books, dest: /share/media-share/Books }
+        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
+      lxc_mount_lxc_id: 106
+
 - name: Install arr services
   hosts: media-manager
 
@@ -16,7 +33,7 @@
         - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
         - { src: /rpool-main/media-share/Books, dest: /share/media-share/Books }
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
-      lxc_mount_lxc_id: 107
+      lxc_mount_lxc_id: 106
 
     - role: tychobrouwer.arrs
       arrs_media_owner: mountuser

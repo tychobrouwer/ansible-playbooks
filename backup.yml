@@ -1,4 +1,19 @@
 ---
+- name: Apply Proxmox config
+  hosts: pve
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: false
+      lxc_mount_mounts:
+        - { src: /mnt/backup/pbs-dumps, dest: /mnt/pbs-dumps }
+        - { src: /mnt/backup/kopia, dest: /mnt/kopia }
+      lxc_mount_lxc_id: 107
+
 - name: Install PBS and kopia
   hosts: backup
 
@@ -16,7 +31,7 @@
       lxc_mount_mounts:
         - { src: /mnt/backup/pbs-dumps, dest: /mnt/pbs-dumps }
         - { src: /mnt/backup/kopia, dest: /mnt/kopia }
-      lxc_mount_lxc_id: 108
+      lxc_mount_lxc_id: 107
       lxc_mount_users: [backup]
 
     - role: tychobrouwer.kopia

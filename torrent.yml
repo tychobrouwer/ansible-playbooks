@@ -1,4 +1,27 @@
 ---
+- name: Apply Proxmox config
+  hosts: pve
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.lxc_mount
+      lxc_mount_is_lxc: false
+      lxc_mount_mounts:
+        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
+      lxc_mount_lxc_id: 104
+      
+    - name: Add lxc config entries for VPN
+      ansible.builtin.lineinfile:
+        path: /etc/pve/lxc/{{ item[0] }}.conf
+        line: "{{ item[1] }}"
+        regexp: "^{{ item[1] }}"
+      loop:
+        - [ "104", "lxc.cgroup2.devices.allow: c 10:200 rwm" ]
+        - [ "104", "lxc.mount.entry: /dev/net dev/net none bind,create=dir"]
+
 - name: Install qBittorrent
   hosts: torrent
 
@@ -20,7 +43,7 @@
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
-      lxc_mount_lxc_id: 105
+      lxc_mount_lxc_id: 104
       lxc_mount_users: [qbittorrent]
 
   tasks:

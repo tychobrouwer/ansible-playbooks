@@ -15,67 +15,10 @@
       proxmox_pbs_client_directories:
           - file-share.pxar:/media/file-share
           - lxc-config.pxar:/etc/pve/lxc
-      proxmox_pbs_repository: backup@pbs@192.168.1.108:main
+      proxmox_pbs_repository: backup@pbs@192.168.1.107:main
       proxmox_backup_hours: "2,8,17,22"
 
-    # - role: tychobrouwer.lxc_nvidia
-    #   lxc_nvidia_lxc_id: 108
-    #   lxc_nvidia_is_host: true
-    #   lxc_nvidia_version: "550.67"
-
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: false
-      lxc_mount_mounts:
-        - { src: /media/file-share, dest: /share/file-share }
-        - { src: /rpool-main/media-share, dest: /share/media-share }
-        - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
-        - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
-        - { src: /rpool-main/media-share/Books, dest: /share/media-share/Books }
-        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
-        - { src: /rpool-main/media-share/Transcodes, dest: /share/media-share/Transcodes }
-      lxc_mount_lxc_id: 103
-
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: false
-      lxc_mount_mounts:
-        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
-      lxc_mount_lxc_id: 104
-
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: false
-      lxc_mount_mounts:
-        - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
-        - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
-        - { src: /rpool-main/media-share/Books, dest: /share/media-share/Books }
-        - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
-      lxc_mount_lxc_id: 106
-
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: false
-      lxc_mount_mounts:
-        - { src: /mnt/backup/pbs-dumps, dest: /mnt/pbs-dumps }
-        - { src: /mnt/backup/kopia, dest: /mnt/kopia }
-      lxc_mount_lxc_id: 107
-
-    - role: tychobrouwer.lxc_mount
-      lxc_mount_is_lxc: false
-      lxc_mount_mounts:
-        - { src: /media/file-share, dest: /share/file-share }
-        - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
-        - { src: /rpool-main/media-share/Series, dest: /share/media-share/Series }
-        - { src: /rpool-main/media-share/Transcodes, dest: /share/media-share/Transcodes }
-      lxc_mount_lxc_id: 108
-
   tasks:
-    - name: Add lxc config entries for VPN
-      ansible.builtin.lineinfile:
-        path: /etc/pve/lxc/{{ item[0] }}.conf
-        line: "{{ item[1] }}"
-        regexp: "^{{ item[1] }}"
-      loop:
-        - [ "104", "lxc.cgroup2.devices.allow: c 10:200 rwm" ]
-        - [ "104", "lxc.mount.entry: /dev/net dev/net none bind,create=dir"]
-
     - name: Set timezone
       ansible.builtin.command: timedatectl set-timezone Europe/Amsterdam
       changed_when: false
