@@ -1,6 +1,6 @@
 ---
-- name: Install Gitea
-  hosts: gitea
+- name: Install Wiki.js
+  hosts: wiki
 
   vars_files:
     - vars.yml
@@ -10,14 +10,13 @@
     - role: tychobrouwer.ssh
 
     - role: tychobrouwer.postgres
-      postgres_db_user: gitea
-      postgres_db_name: giteadb
-      postgres_db_pass: "{{ gitea_db_password }}"
+      postgres_db_user: wikijs
+      postgres_db_name: wikijs
+      postgres_db_pass: "{{ wiki_js_db_pass }}"
 
-    - role: tychobrouwer.git
-
-    - role: tychobrouwer.gitea
-      gitea_app_name: "Gitea | Tycho Brouwer"
+    - role: tychobrouwer.wiki_js
+      wiki_js_db_user: wikijs
+      wiki_js_db_name: wikijs
 
   tasks:
     - name: Set journald log size
