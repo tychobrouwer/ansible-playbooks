@@ -16,9 +16,11 @@ roles:
   - name: tychobrouwer.pbs
   - name: tychobrouwer.pihole
   - name: tychobrouwer.portainer
+  - name: tychobrouwer.postgres
   - name: tychobrouwer.proxmox
   - name: tychobrouwer.qbittorrent_nox
   - name: tychobrouwer.samba
   - name: tychobrouwer.ssh
   - name: tychobrouwer.upgrade_packages
+  - name: tychobrouwer.wiki_js
   - name: tychobrouwer.wireguard
