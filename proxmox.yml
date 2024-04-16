@@ -29,3 +29,13 @@
         backrefs: yes
         regexp: "^root=(?!.*idle).*$"
         line: '\1 idle=nomwait processor.max_cstate=5'
+
+    - name: Remove arc cache limit
+      ansible.builtin.file:
+        path: /etc/modprobe.d/zfs.conf
+        state: absent
+      register: zfs_conf
+
+    - name: Rebuild initramfs
+      ansible.builtin.command: update-initramfs -u -k all
+      when: zfs_conf.changed

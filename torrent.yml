@@ -47,6 +47,19 @@
       lxc_mount_users: [qbittorrent]
 
   tasks:
+    - name: Create qBittorrent service override directory
+      ansible.builtin.file:
+        path: /etc/systemd/system/qbittorrent.service.d
+        state: directory
+
+    - name: Start qBittorrent after openvpn
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/qbittorrent.service.d/after-openvpn.service
+        content: |
+          [Unit]
+          After=openvpn@client.service
+        mode: 0755
+
     - name: Set journald log size
       ansible.builtin.lineinfile:
         path: /etc/systemd/journald.conf
