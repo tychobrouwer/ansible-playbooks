@@ -26,7 +26,7 @@
     - name: Add kernel cmd fixes for random crashes
       ansible.builtin.lineinfile:
         path: /etc/kernel/cmdline
-        backrefs: yes
+        backrefs: true
         regexp: "^root=(?!.*idle).*$"
         line: '\1 idle=nomwait processor.max_cstate=5'
 

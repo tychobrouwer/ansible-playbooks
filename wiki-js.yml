@@ -12,7 +12,7 @@
     - role: tychobrouwer.postgres
       postgres_db_user: wikijs
       postgres_db_name: wikijs
-      postgres_db_pass: "{{ wiki_js_db_pass }}"
+      postgres_db_password: "{{ wiki_js_db_password }}"
 
     - role: tychobrouwer.wiki_js
       wiki_js_db_user: wikijs

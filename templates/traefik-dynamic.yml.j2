@@ -123,6 +123,15 @@ http:
       service: pve-backup
       tls: {}
 
+    jellyfin:
+      entryPoints:
+        - web-secure
+      rule: "Host(`jellyfin.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: jellyfin
+      tls: {}
+
     gitea:
       entryPoints:
         - web-secure
@@ -132,13 +141,13 @@ http:
       service: gitea
       tls: {}
 
-    jellyfin:
+    wiki:
       entryPoints:
         - web-secure
-      rule: "Host(`jellyfin.{{ portainer_root_domain }}`)"
+      rule: "Host(`wiki.{{ portainer_root_domain }}`)"
       middlewares:
         - authelia
-      service: jellyfin
+      service: wiki
       tls: {}
 
   services:
@@ -194,15 +203,20 @@ http:
         servers:
           - url: "https://192.168.1.107:8007/"
 
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.108:8096/"
+
     gitea:
       loadBalancer:
         servers:
           - url: "http://192.168.1.109:3000/"
 
-    jellyfin:
+    wiki:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.108:8096/"
+          - url: "http://192.168.1.110:3000/"
 
   middlewares:
     addprefix-pihole:
