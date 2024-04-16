@@ -28,4 +28,4 @@
         path: /etc/kernel/cmdline
         backrefs: yes
         regexp: "^root=(?!.*idle).*$"
-        line: "\1 idle=nomwait processor.max_cstate=5"
+        line: '\1 idle=nomwait processor.max_cstate=5'
