@@ -20,7 +20,7 @@
           url.rewrite-once = (
             "^/(dist|images|api)/(.*)$" =>      "/$1/$2",
             "^/robots.txt$"             =>      "/robots.txt",
-            "^/(projects)(.*)$"         =>      "/index.html"
+            "^/projects(.*)$"           =>      "/index.html"
           )
 
   tasks:
