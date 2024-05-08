@@ -105,6 +105,15 @@ http:
       service: sonarr
       tls: {}
 
+    bazarr:
+      entryPoints:
+        - web-secure
+      rule: "Host(`bazarr.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: bazarr
+      tls: {}
+
     readarr:
       entryPoints:
         - web-secure
@@ -196,6 +205,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.106:8989/"
+
+    bazarr:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.106:6767/"
 
     pve-backup:
       loadBalancer:
