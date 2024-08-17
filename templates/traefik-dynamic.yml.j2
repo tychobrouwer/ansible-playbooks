@@ -44,6 +44,16 @@ http:
       service: pihole
       tls: {}
 
+    pihole_2_path:
+      entryPoints:
+        - web-secure
+      rule: "Host (`pihole-2.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+        - addprefix-pihole
+      service: pihole_2
+      tls: {}
+
     wireguard:
       entryPoints:
         - web-secure
@@ -170,6 +180,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.101:80/"
+
+    pihole_2:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.112:80/"
 
     wireguard:
       loadBalancer:

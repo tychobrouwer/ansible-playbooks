@@ -99,6 +99,13 @@ sections:
         statusCheckUrl: http://192.168.1.101:80
         statusCheckAcceptCodes: "403"
 
+      - title: Pi-Hole-2
+        icon: hl-pi-hole-unbound
+        url: https://pihole-2.{{ portainer_root_domain }}/
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.112:80
+        statusCheckAcceptCodes: "403"
+
       - title: Wireguard
         icon: hl-wireguard
         url: https://wireguard.{{ portainer_root_domain }}/
