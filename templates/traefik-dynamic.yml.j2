@@ -44,6 +44,15 @@ http:
       service: pihole
       tls: {}
 
+    pihole_2:
+      entryPoints:
+        - web-secure
+      rule: "PathPrefix(`/admin`) && Host (`pihole-2.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: pihole_2
+      tls: {}
+
     pihole_2_path:
       entryPoints:
         - web-secure
