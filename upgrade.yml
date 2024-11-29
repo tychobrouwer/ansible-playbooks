@@ -1,5 +1,6 @@
 ---
 - name: Upgrade container packages
+  serial: 1
   hosts:
     - proxmox_all_running
     - pve
