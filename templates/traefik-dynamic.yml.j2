@@ -178,6 +178,15 @@ http:
       service: wiki
       tls: {}
 
+    tandoor:
+      entryPoints:
+        - web-secure
+      rule: "Host(`tandoor.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: tandoor
+      tls: {}
+
   services:
     pve:
       loadBalancer:
@@ -255,6 +264,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.110:3000/"
+
+    tandoor:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.110:9080/"
 
   middlewares:
     addprefix-pihole:
