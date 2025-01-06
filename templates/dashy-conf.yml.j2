@@ -93,14 +93,14 @@ sections:
         statusCheckUrl: http://192.168.1.201:3000
 
       - title: Pi-Hole
-        icon: hl-pi-hole-unbound
+        icon: hl-pi-hole
         url: https://pihole.{{ portainer_root_domain }}/
         statusCheck: true
         statusCheckUrl: http://192.168.1.101:80
         statusCheckAcceptCodes: "403"
 
       - title: Pi-Hole-2
-        icon: hl-pi-hole-unbound
+        icon: hl-pi-hole
         url: https://pihole-2.{{ portainer_root_domain }}/
         statusCheck: true
         statusCheckUrl: http://192.168.1.112:80
@@ -216,7 +216,7 @@ sections:
         statusCheckUrl: http://192.168.1.203:8123/
 
       - title: Tandoor
-        icon: hl-tandoor
+        icon: hl-tandoor-recipes
         url: https://tandoor.{{ portainer_root_domain }}/
         statusCheck: true
         statusCheckUrl: http://192.168.1.201:9080/
@@ -238,7 +238,7 @@ sections:
         url: https://www.imdb.com/
 
       - title: Rabobank
-        icon: https://bankieren.rabobank.nl/online/assets/assets/icon/favicon-32.png
+        icon: https://media.rabobank.com/m/2c73040e3f67ab71/original/favicon.ico
         url: https://bankieren.rabobank.nl/online/nl/dashboard
 
       - title: PayPal
