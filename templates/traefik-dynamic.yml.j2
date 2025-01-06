@@ -133,6 +133,15 @@ http:
       service: bazarr
       tls: {}
 
+    flaresolverr:
+      entryPoints:
+        - web-secure
+      rule: "Host(`flaresolverr.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: flaresolverr
+      tls: {}
+
     readarr:
       entryPoints:
         - web-secure
@@ -252,6 +261,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.106:6767/"
+
+    flaresolverr:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.106:8191/"
 
     pve-backup:
       loadBalancer:
