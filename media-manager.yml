@@ -44,7 +44,7 @@
         name: "{{ item }}"
         groups: mountuser
         append: true
-      with_items: [prowlarr, radarr, sonarr, readarr, bazarr]
+      with_items: [prowlarr, radarr, sonarr, readarr, bazarr, flaresolverr]
 
     - name: Set journald log size
       ansible.builtin.lineinfile:
