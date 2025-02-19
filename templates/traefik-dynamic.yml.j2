@@ -124,6 +124,15 @@ http:
       service: sonarr
       tls: {}
 
+    stirling-pdf:
+      entryPoints:
+        - web-secure
+      rule: "Host(`stirling.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: stirling-pdf
+      tls: {}
+
     bazarr:
       entryPoints:
         - web-secure
@@ -238,6 +247,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.106:8989/"
+
+    stirling-pdf:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.113:3000/"
 
     bazarr:
       loadBalancer:

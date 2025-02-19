@@ -81,11 +81,6 @@ sections:
         statusCheckUrl: http://10.12.12.201:4080
         statusCheckAcceptCodes: "401"
 
-      - title: Portfolio
-        url: https://www.{{ portainer_root_domain }}/
-        icon: fas fa-globe
-        statusCheck: true
-
       - title: Grafana
         icon: hl-grafana
         url: https://grafana.{{ portainer_root_domain }}/
@@ -193,6 +188,11 @@ sections:
         icon: hl-google-calendar
         url: https://calendar.google.com/
 
+      - title: Portfolio
+        url: https://www.{{ portainer_root_domain }}/
+        icon: fas fa-globe
+        statusCheck: true
+
       - title: Youtube
         icon: hl-youtube
         url: https://www.youtube.com/
@@ -206,10 +206,6 @@ sections:
         icon: hl-jellyfin
         statusCheck: true
         statusCheckUrl: http://10.12.12.108:8096
-
-      - title: Videoland
-        icon: favicon
-        url: https://v2.videoland.com/
 
       - title: Spotify
         icon: hl-spotify
@@ -283,7 +279,13 @@ sections:
 
       - title: TU/e Databases
         icon: hl-bookstack
-        url: http://library.tue.nl/AZDatabases/
+        url: https://library.tue.nl/AZDatabases/
+
+      - title: Stirling PDF
+        icon: hl-stirling-pdf
+        url: https://stirling.{{ portainer_root_domain }}/
+        statusCheck: true
+        statusCheckUrl: http://10.12.12.113:3000/
 
       - title: ESBV Panache
         icon: https://esbvpanache.nl/wp-content/uploads/2015/05/254596_10151060894411945_2113449619_n.jpg
