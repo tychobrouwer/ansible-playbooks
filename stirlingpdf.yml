@@ -12,6 +12,9 @@
     - role: tychobrouwer.stirlingpdf
       stirlingpdf_path: /opt/stirlingpdf
       stirlingpdf_build_path: /root/stirlingpdf
+      stirlingpdf_java_deb_key: https://apt.corretto.aws/corretto.key
+      stirlingpdf_java_deb_repo: deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main
+      stirlingpdf_java_package: java-21-amazon-corretto-jdk
 
   tasks:
     - name: Set journald log size
