@@ -1,0 +1,22 @@
+---
+- name: Install Stirling PDF
+  hosts: stirlingpdf
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.stirlingpdf
+      stirlingpdf_path: /opt/stirlingpdf
+      stirlingpdf_build_path: /root/stirlingpdf
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

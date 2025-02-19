@@ -178,15 +178,6 @@ http:
       service: wiki
       tls: {}
 
-    tandoor:
-      entryPoints:
-        - web-secure
-      rule: "Host(`tandoor.{{ portainer_root_domain }}`)"
-      middlewares:
-        - authelia
-      service: tandoor
-      tls: {}
-
     ha:
       entryPoints:
         - web-secure
@@ -201,88 +192,83 @@ http:
       loadBalancer:
         serversTransport: "pve"
         servers:
-          - url: "https://192.168.1.100:8006/"
+          - url: "https://10.12.12.100:8006/"
 
     pihole:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.101:80/"
+          - url: "http://10.12.12.101:80/"
 
     pihole_2:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.112:80/"
+          - url: "http://10.12.12.112:80/"
 
     wireguard:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.102:10086/"
+          - url: "http://10.12.12.102:10086/"
 
     torrent:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.104:8080/"
+          - url: "http://10.12.12.104:8080/"
 
     website:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.105:80/"
+          - url: "http://10.12.12.105:80/"
 
     prowlarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.106:9696/"
+          - url: "http://10.12.12.106:9696/"
 
     radarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.106:7878/"
+          - url: "http://10.12.12.106:7878/"
 
     readarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.106:8787/"
+          - url: "http://10.12.12.106:8787/"
 
     sonarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.106:8989/"
+          - url: "http://10.12.12.106:8989/"
 
     bazarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.106:6767/"
+          - url: "http://10.12.12.106:6767/"
 
     pve-backup:
       loadBalancer:
         serversTransport: "pve-backup"
         servers:
-          - url: "https://192.168.1.107:8007/"
+          - url: "https://10.12.12.107:8007/"
 
     jellyfin:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.108:8096/"
+          - url: "http://10.12.12.108:8096/"
 
     gitea:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.109:3000/"
+          - url: "http://10.12.12.109:3000/"
 
     wiki:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.110:3000/"
-
-    tandoor:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.1.110:9080/"
+          - url: "http://10.12.12.110:3000/"
 
     ha:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.203:8123/"
+          - url: "http://10.12.12.203:8123/"
 
   middlewares:
     addprefix-pihole:

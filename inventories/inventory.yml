@@ -2,11 +2,11 @@
 all:
   hosts:
     pve:
-      ansible_host: 192.168.1.100
+      ansible_host: 10.12.12.100
     laptop:
-      ansible_host: 192.168.1.50
+      ansible_host: 10.12.12.50
     docker:
-      ansible_host: 192.168.1.201
+      ansible_host: 10.12.12.201
   vars:
     ansible_user: root
     ansible_port: 22

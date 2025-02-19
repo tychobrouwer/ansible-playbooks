@@ -71,14 +71,14 @@ sections:
         icon: hl-proxmox
         url: "https://pve.{{ portainer_root_domain }}/#v1:0:=node%2Fpve:4:5::::::"
         statusCheck: true
-        statusCheckUrl: https://192.168.1.100:8006
+        statusCheckUrl: https://10.12.12.100:8006
         statusCheckAllowInsecure: true
 
       - title: Passbolt
         icon: https://avatars.githubusercontent.com/u/4386228?s=200&v=4
         url: https://passbolt.{{ portainer_root_domain }}
         statusCheck: true
-        statusCheckUrl: http://192.168.1.201:4080
+        statusCheckUrl: http://10.12.12.201:4080
         statusCheckAcceptCodes: "401"
 
       - title: Portfolio
@@ -90,97 +90,97 @@ sections:
         icon: hl-grafana
         url: https://grafana.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.201:3000
+        statusCheckUrl: http://10.12.12.201:3000
 
       - title: Pi-Hole
         icon: hl-pi-hole
         url: https://pihole.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.101:80
+        statusCheckUrl: http://10.12.12.101:80
         statusCheckAcceptCodes: "403"
 
       - title: Pi-Hole-2
         icon: hl-pi-hole
         url: https://pihole-2.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.112:80
+        statusCheckUrl: http://10.12.12.112:80
         statusCheckAcceptCodes: "403"
 
       - title: Wireguard
         icon: hl-wireguard
         url: https://wireguard.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.102:10086
+        statusCheckUrl: http://10.12.12.102:10086
 
       - title: Portainer
         icon: hl-portainer
         url: https://portainer.{{ portainer_root_domain }}/#!/2/docker/containers
         statusCheck: true
-        statusCheckUrl: http://192.168.1.201:9000
+        statusCheckUrl: http://10.12.12.201:9000
 
       - title: Sonarr
         url: https://sonarr.{{ portainer_root_domain }}/
         icon: hl-sonarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.106:8989
+        statusCheckUrl: http://10.12.12.106:8989
 
       - title: Radarr
         url: https://radarr.{{ portainer_root_domain }}/
         icon: hl-radarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.106:7878
+        statusCheckUrl: http://10.12.12.106:7878
 
       - title: Bazarr
         url: https://bazarr.{{ portainer_root_domain }}/
         icon: hl-bazarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.106:6767
+        statusCheckUrl: http://10.12.12.106:6767
 
       - title: Readarr
         url: https://readarr.{{ portainer_root_domain }}/
         icon: hl-readarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.106:8787
+        statusCheckUrl: http://10.12.12.106:8787
 
       - title: Prowlarr
         url: https://prowlarr.{{ portainer_root_domain }}/
         icon: hl-prowlarr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.106:9696
+        statusCheckUrl: http://10.12.12.106:9696
 
       - title: FlareSolverr
-        url: http://192.168.1.106:8191
+        url: http://10.12.12.106:8191
         icon: hl-flaresolverr
         statusCheck: true
-        statusCheckUrl: http://192.168.1.106:8191
+        statusCheckUrl: http://10.12.12.106:8191
 
       - title: qBittorrent
         url: https://torrent.{{ portainer_root_domain }}/
         icon: hl-qbittorrent
         statusCheck: true
-        statusCheckUrl: http://192.168.1.104:8080
+        statusCheckUrl: http://10.12.12.104:8080
 
       - title: Traefik
         url: http://portainer.home:8080/
         icon: hl-traefik
         statusCheck: true
-        statusCheckUrl: http://192.168.1.201:8080
+        statusCheckUrl: http://10.12.12.201:8080
 
       - title: InfluxDB
         url: http://portainer.home:8086/
         icon: hl-influxdb
         statusCheck: true
-        statusCheckUrl: http://192.168.1.201:8086
+        statusCheckUrl: http://10.12.12.201:8086
 
       - title: Proxmox Backup
         icon: hl-proxmox
         url: https://pve-backup.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: https://192.168.1.107:8007
+        statusCheckUrl: https://10.12.12.107:8007
         statusCheckAllowInsecure: true
 
       - title: Zyxel Router
-        url: http://192.168.1.1/
+        url: http://10.12.12.1/
         icon: hl-router
 
   - name: Personal
@@ -205,7 +205,7 @@ sections:
         url: https://jellyfin.{{ portainer_root_domain }}/web/index.html#!/home.html
         icon: hl-jellyfin
         statusCheck: true
-        statusCheckUrl: http://192.168.1.108:8096
+        statusCheckUrl: http://10.12.12.108:8096
 
       - title: Videoland
         icon: favicon
@@ -219,13 +219,13 @@ sections:
         icon: hl-home-assistant
         url: https://ha.tbrouwer.com/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.203:8123/
+        statusCheckUrl: http://10.12.12.203:8123/
 
       - title: Tandoor
         icon: hl-tandoor-recipes
         url: https://tandoor.{{ portainer_root_domain }}/
         statusCheck: true
-        statusCheckUrl: http://192.168.1.201:9080/
+        statusCheckUrl: http://10.12.12.201:9080/
 
       - title: iCloud
         icon: favicon
@@ -334,13 +334,13 @@ sections:
         url: https://gitea.{{ portainer_root_domain }}/
         icon: hl-gitea
         statusCheck: true
-        statusCheckUrl: http://192.168.1.109:3000
+        statusCheckUrl: http://10.12.12.109:3000
 
       - title: Wiki.js
         url: https://wiki.tbrouwer.com/
         icon: hl-wikijs
         statusCheck: true
-        statusCheckUrl: http://192.168.1.110:3000
+        statusCheckUrl: http://10.12.12.110:3000
 
       - title: Cloudflare
         url: https://dash.cloudflare.com/

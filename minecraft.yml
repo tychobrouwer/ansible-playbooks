@@ -12,6 +12,8 @@
     - role: tychobrouwer.minecraft
       minecraft_paper_version: 1.20.6
       minecraft_paper_build: 145
+      minecraft_java_deb_key: https://apt.corretto.aws/corretto.key
+      minecraft_java_deb_repo: deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main
       minecraft_java_package: java-21-amazon-corretto-jdk
       minecraft_level_name: world
       minecraft_properties_template: "{{ lookup('file', 'templates/server.properties.j2') }}"

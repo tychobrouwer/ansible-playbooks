@@ -21,6 +21,7 @@ roles:
   - name: tychobrouwer.qbittorrent_nox
   - name: tychobrouwer.samba
   - name: tychobrouwer.ssh
+  - name: tychobrouwer.stirlingpdf
   - name: tychobrouwer.upgrade_packages
   - name: tychobrouwer.wiki_js
   - name: tychobrouwer.wireguard
