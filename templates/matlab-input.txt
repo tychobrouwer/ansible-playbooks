@@ -95,7 +95,7 @@ product.Curve_Fitting_Toolbox
 #product.DDS_Blockset
 #product.DSP_HDL_Toolbox
 product.DSP_System_Toolbox
-product.Data_Acquisition_Toolbox
+#product.Data_Acquisition_Toolbox
 product.Database_Toolbox
 #product.Datafeed_Toolbox
 #product.Deep_Learning_HDL_Toolbox
