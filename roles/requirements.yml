@@ -11,6 +11,7 @@ roles:
   - name: tychobrouwer.lxc_mount
   - name: tychobrouwer.lxc_nvidia
   - name: tychobrouwer.lxc_start
+  - name: tychobrouwer.matlab
   - name: tychobrouwer.minecraft
   - name: tychobrouwer.nordvpn
   - name: tychobrouwer.pbs
