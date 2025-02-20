@@ -1,0 +1,24 @@
+---
+- name: Install MATLAB
+  hosts:
+    - matlab
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.matlab
+      matlab_release: R2024b
+      matlab_install_location: /opt/matlab/{{ matlab_release }}
+      matlab_user: matlab
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"
