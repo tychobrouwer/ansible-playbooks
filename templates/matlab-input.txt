@@ -117,7 +117,7 @@
 #product.Instrument_Control_Toolbox
 #product.LTE_Toolbox
 #product.Lidar_Toolbox
-#product.MATLAB
+product.MATLAB
 #product.MATLAB_Coder
 #product.MATLAB_Compiler
 #product.MATLAB_Compiler_SDK
