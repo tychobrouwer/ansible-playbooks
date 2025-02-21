@@ -10,7 +10,7 @@
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
-        - { src: /media/file-share/TUEindhoven, dest: /home/matlab/file-share }
+        - { src: /media/file-share/TUEindhoven, dest: /home/matlab/Documents/TUEindhoven }
       lxc_mount_lxc_id: 114
 
 - name: Install MATLAB
@@ -33,7 +33,7 @@
     - role: tychobrouwer.lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
-        - { src: /media/file-share/TUEindhoven, dest: /home/matlab/file-share }
+        - { src: /media/file-share/TUEindhoven, dest: /home/matlab/Documents/TUEindhoven }
       lxc_mount_lxc_id: 114
       lxc_mount_users: [matlab]
 
