@@ -4,6 +4,10 @@
   hosts:
     - proxmox_all_running
     - pve
+  ignore_unreachable: true
+  ignore_errors: true
 
   roles:
     - role: tychobrouwer.upgrade_packages
+      upgrade_packages_clean: true
+      upgrade_packages_autoremove: true
