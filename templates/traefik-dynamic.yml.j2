@@ -196,6 +196,15 @@ http:
       service: ha
       tls: {}
 
+    matlab:
+      entryPoints:
+        - web-secure
+      rule: "Host(`matlab.{{ portainer_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: matlab
+      tls: {}
+
   services:
     pve:
       loadBalancer:
@@ -283,6 +292,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.203:8123/"
+    
+    matlab:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.114:8888/"
 
   middlewares:
     addprefix-pihole:
