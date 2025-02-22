@@ -10,7 +10,10 @@
     - role: tychobrouwer.ssh
 
     - role: tychobrouwer.portainer
-      portainer_root_domain: tbrouwer.com        
+      traefik_root_domain: tbrouwer.com
+      portainer_root_domain: tbrouwer.com
+      traefik_enabled: false
+      portainer_cpus: 2
       portainer_dashy:
         description: "Dashboard | Tycho Brouwer"
       portainer_authelia_user:

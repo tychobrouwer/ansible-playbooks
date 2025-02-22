@@ -16,10 +16,17 @@ http:
       insecureSkipVerify: true
 
   routers:
+    authelia:
+      entryPoints:
+        - web-secure
+      rule: "Host (`authelia.{{ traefik_root_domain }}`)"
+      service: authelia
+      tls: {}
+
     pve:
       entryPoints:
         - web-secure
-      rule: "Host (`pve.{{ portainer_root_domain }}`)"
+      rule: "Host (`pve.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: pve
@@ -28,7 +35,7 @@ http:
     pihole:
       entryPoints:
         - web-secure
-      rule: "PathPrefix(`/admin`) && Host (`pihole.{{ portainer_root_domain }}`)"
+      rule: "PathPrefix(`/admin`) && Host (`pihole.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: pihole
@@ -37,7 +44,7 @@ http:
     pihole_path:
       entryPoints:
         - web-secure
-      rule: "Host (`pihole.{{ portainer_root_domain }}`)"
+      rule: "Host (`pihole.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
         - addprefix-pihole
@@ -47,7 +54,7 @@ http:
     pihole_2:
       entryPoints:
         - web-secure
-      rule: "PathPrefix(`/admin`) && Host (`pihole-2.{{ portainer_root_domain }}`)"
+      rule: "PathPrefix(`/admin`) && Host (`pihole-2.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: pihole_2
@@ -56,17 +63,58 @@ http:
     pihole_2_path:
       entryPoints:
         - web-secure
-      rule: "Host (`pihole-2.{{ portainer_root_domain }}`)"
+      rule: "Host (`pihole-2.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
         - addprefix-pihole
       service: pihole_2
       tls: {}
 
+    dashy:
+      entryPoints:
+        - web-secure
+      rule: "Host (`dash.{{ traefik_root_domain }}`)"
+      service: dashy
+      tls: {}
+
+    grafana:
+      entryPoints:
+        - web-secure
+      rule: "Host (`grafana.{{ traefik_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: grafana
+      tls: {}
+
+    portainer:
+      entryPoints:
+        - web-secure
+      rule: "Host (`portainer.{{ traefik_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: portainer
+      tls: {}
+
+    tandoor:
+      entryPoints:
+        - web-secure
+      rule: "Host (`tandoor.{{ traefik_root_domain }}`)"
+      middlewares:
+        - authelia
+      service: tandoor
+      tls: {}
+
+    passbolt:
+      entryPoints:
+        - web-secure
+      rule: "Host (`passbolt.{{ traefik_root_domain }}`)"
+      service: passbolt
+      tls: {}
+
     wireguard:
       entryPoints:
         - web-secure
-      rule: "Host (`wireguard.{{ portainer_root_domain }}`)"
+      rule: "Host (`wireguard.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: wireguard
@@ -75,7 +123,7 @@ http:
     torrent:
       entryPoints:
         - web-secure
-      rule: "Host(`torrent.{{ portainer_root_domain }}`)"
+      rule: "Host(`torrent.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: torrent
@@ -84,14 +132,14 @@ http:
     www-website:
       entryPoints:
         - web-secure
-      rule: "Host(`www.{{ portainer_root_domain }}`)"
+      rule: "Host(`www.{{ traefik_root_domain }}`)"
       service: website
       tls: {}
 
     website:
       entryPoints:
         - web-secure
-      rule: "Host(`{{ portainer_root_domain }}`)"
+      rule: "Host(`{{ traefik_root_domain }}`)"
       middlewares:
         - "www-redirect"
       service: website
@@ -100,7 +148,7 @@ http:
     prowlarr:
       entryPoints:
         - web-secure
-      rule: "Host(`prowlarr.{{ portainer_root_domain }}`)"
+      rule: "Host(`prowlarr.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: prowlarr
@@ -109,7 +157,7 @@ http:
     radarr:
       entryPoints:
         - web-secure
-      rule: "Host(`radarr.{{ portainer_root_domain }}`)"
+      rule: "Host(`radarr.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: radarr
@@ -118,7 +166,7 @@ http:
     sonarr:
       entryPoints:
         - web-secure
-      rule: "Host(`sonarr.{{ portainer_root_domain }}`)"
+      rule: "Host(`sonarr.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: sonarr
@@ -127,7 +175,7 @@ http:
     stirling-pdf:
       entryPoints:
         - web-secure
-      rule: "Host(`stirling.{{ portainer_root_domain }}`)"
+      rule: "Host(`stirling.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: stirling-pdf
@@ -136,7 +184,7 @@ http:
     bazarr:
       entryPoints:
         - web-secure
-      rule: "Host(`bazarr.{{ portainer_root_domain }}`)"
+      rule: "Host(`bazarr.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: bazarr
@@ -145,7 +193,7 @@ http:
     readarr:
       entryPoints:
         - web-secure
-      rule: "Host(`readarr.{{ portainer_root_domain }}`)"
+      rule: "Host(`readarr.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: readarr
@@ -154,7 +202,7 @@ http:
     pve-backup:
       entryPoints:
         - web-secure
-      rule: "Host (`pve-backup.{{ portainer_root_domain }}`)"
+      rule: "Host (`pve-backup.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: pve-backup
@@ -163,7 +211,7 @@ http:
     jellyfin:
       entryPoints:
         - web-secure
-      rule: "Host(`jellyfin.{{ portainer_root_domain }}`)"
+      rule: "Host(`jellyfin.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: jellyfin
@@ -172,7 +220,7 @@ http:
     gitea:
       entryPoints:
         - web-secure
-      rule: "Host(`gitea.{{ portainer_root_domain }}`)"
+      rule: "Host(`gitea.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: gitea
@@ -181,7 +229,7 @@ http:
     wiki:
       entryPoints:
         - web-secure
-      rule: "Host(`wiki.{{ portainer_root_domain }}`)"
+      rule: "Host(`wiki.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: wiki
@@ -190,7 +238,7 @@ http:
     ha:
       entryPoints:
         - web-secure
-      rule: "Host(`ha.{{ portainer_root_domain }}`)"
+      rule: "Host(`ha.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: ha
@@ -199,13 +247,28 @@ http:
     matlab:
       entryPoints:
         - web-secure
-      rule: "Host(`matlab.{{ portainer_root_domain }}`)"
+      rule: "Host(`matlab.{{ traefik_root_domain }}`)"
       middlewares:
         - authelia
       service: matlab
       tls: {}
 
   services:
+    authelia:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.201:9091/"
+
+    dashy:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.201:1080/"
+
+    portainer:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.201:9000/"
+
     pve:
       loadBalancer:
         serversTransport: "pve"
@@ -221,6 +284,16 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.112:80/"
+
+    grafana:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.201:3000/"
+
+    tandoor:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.201:9080/"
 
     wireguard:
       loadBalancer:
@@ -241,6 +314,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.106:9696/"
+
+    passbolt:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.201:4080/"
 
     radarr:
       loadBalancer:
@@ -305,11 +383,11 @@ http:
 
     www-redirect:
       redirectRegex:
-        regex: "https://{{ portainer_root_domain }}/(.*)"
-        replacement: "https://www.{{ portainer_root_domain }}/${1}"
+        regex: "https://{{ traefik_root_domain }}/(.*)"
+        replacement: "https://www.{{ traefik_root_domain }}/${1}"
 
     authelia:
       forwardAuth:
-        address: http://authelia:9091/api/verify?rd=https%3A%2F%2Fauthelia.{{ portainer_root_domain }}%2F
+        address: http://authelia:9091/api/verify?rd=https%3A%2F%2Fauthelia.{{ traefik_root_domain }}%2F
         trustForwardHeader: true
         authResponseHeaders: Remote-User,Remote-Groups,Remote-Name,Remote-Email

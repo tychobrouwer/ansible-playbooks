@@ -7,9 +7,6 @@ api:
   dashboard: true
 
 providers:
-  docker:
-    exposedbydefault: false
-    endpoint: unix:///var/run/docker.sock
   file:
     filename: /etc/traefik/dynamic.yaml
     watch: true
@@ -32,7 +29,7 @@ accessLog:
 
 metrics:
   influxDB2:
-    address: http://{{ ansible_default_ipv4.address | default(ansible_all_ipv4_addresses[0]) }}:8086
+    address: http://10.12.12.201:8086
     token: {{ portainer_influxdb.secret }}
     org: homelab
     bucket: traefik
