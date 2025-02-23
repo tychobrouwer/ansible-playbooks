@@ -388,6 +388,6 @@ http:
 
     authelia:
       forwardAuth:
-        address: http://authelia:9091/api/verify?rd=https%3A%2F%2Fauthelia.{{ traefik_root_domain }}%2F
+        address: http://10.12.12.201:9091/api/verify?rd=https%3A%2F%2Fauthelia.{{ traefik_root_domain }}%2F
         trustForwardHeader: true
         authResponseHeaders: Remote-User,Remote-Groups,Remote-Name,Remote-Email

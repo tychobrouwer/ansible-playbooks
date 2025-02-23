@@ -28,10 +28,10 @@
         - /root/cert-proxmox.crt:/root/cert-proxmox.crt:ro
         - /root/tbrouwer-cloudflare-origin.cert:/root/tbrouwer-cloudflare-origin.cert:ro
         - /root/tbrouwer-cloudflare-origin.key:/root/tbrouwer-cloudflare-origin.key:ro
-      portainer_authelia_config_template: "{{ lookup('file', 'templates/authelia-config.yml.j2') }}"
-      portainer_dashy_config_template: "{{ lookup('file', 'templates/dashy-conf.yml.j2') }}"
-      portainer_traefik_dynamic_template: "{{ lookup('file', 'templates/traefik-dynamic.yml.j2') }}"
-      portainer_traefik_static_template: "{{ lookup('file', 'templates/traefik-static.yml.j2') }}"
+      portainer_authelia_config_template: templates/authelia-config.yml.j2
+      portainer_dashy_config_template: templates/dashy-conf.yml.j2
+      portainer_traefik_dynamic_template: templates/traefik-dynamic.yml.j2
+      portainer_traefik_static_template: templates/traefik-static.yml.j2
 
   tasks:
     - name: Set journald log size

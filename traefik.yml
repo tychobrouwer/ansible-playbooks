@@ -12,8 +12,8 @@
 
     - role: tychobrouwer.traefik
       traefik_root_domain: tbrouwer.com
-      traefik_dynamic_template: "templates/traefik-dynamic.yml.j2"
-      traefik_static_template: "templates/traefik-static.yml.j2"
+      traefik_dynamic_template: templates/traefik-dynamic.yml.j2
+      traefik_static_template: templates/traefik-static.yml.j2
 
   tasks:
     - name: Set journald log size

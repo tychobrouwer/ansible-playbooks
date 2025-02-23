@@ -18,6 +18,7 @@ roles:
   - name: tychobrouwer.pihole
   - name: tychobrouwer.portainer
   - name: tychobrouwer.postgres
+  - name: tychobrouwer.prometheus
   - name: tychobrouwer.proxmox
   - name: tychobrouwer.qbittorrent_nox
   - name: tychobrouwer.samba
