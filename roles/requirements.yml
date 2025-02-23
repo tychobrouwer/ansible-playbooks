@@ -2,6 +2,7 @@
 roles:
   - name: tychobrouwer.ark_survival
   - name: tychobrouwer.arrs
+  - name: tychobrouwer.docker
   - name: tychobrouwer.factorio
   - name: tychobrouwer.git
   - name: tychobrouwer.gitea
@@ -16,7 +17,6 @@ roles:
   - name: tychobrouwer.nordvpn
   - name: tychobrouwer.pbs
   - name: tychobrouwer.pihole
-  - name: tychobrouwer.portainer
   - name: tychobrouwer.postgres
   - name: tychobrouwer.prometheus
   - name: tychobrouwer.proxmox
