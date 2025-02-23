@@ -6,7 +6,7 @@ scrape_configs:
   - job_name: 'pve'
     static_configs:
       - targets:
-        - 10.12.12.100
+        - "{{ hostvars['pve']['ansible_host'] }}"
     metrics_path: /pve
     params:
       module: [default]
@@ -26,3 +26,8 @@ scrape_configs:
 {% for host in groups['proxmox_lxc_running'] %}
         - "{{ hostvars[host]['ansible_host'] }}:9100"
 {% endfor %}
+
+  - job_name: 'traefik'
+    static_configs:
+      - targets:
+        - "{{ hostvars['traefik']['ansible_host'] }}:8082"

@@ -17,6 +17,8 @@ entryPoints:
     http:
       tls:
         options: default
+  metrics:
+    address: :8082
 
 accessLog:
   filePath: /root/access.log
@@ -28,9 +30,12 @@ accessLog:
         x-request-id: keep
 
 metrics:
-  influxDB2:
-    address: http://10.12.12.201:8086
-    token: {{ portainer_influxdb.secret }}
-    org: homelab
-    bucket: traefik
-    pushInterval: 10s
+  prometheus:
+    entryPoint: metrics
+    addEntryPointsLabels: true
+    addServicesLabels: true
+    buckets:
+      - 0.1
+      - 0.3
+      - 1.2
+      - 5.0
