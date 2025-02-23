@@ -9,8 +9,6 @@
   roles:
     - role: tychobrouwer.ssh
 
-    - role: tychobrouwer.git
-
     - role: tychobrouwer.proxmox
       proxmox_pbs_client_directories:
           - file-share.pxar:/media/file-share

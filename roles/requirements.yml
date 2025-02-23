@@ -14,6 +14,7 @@ roles:
   - name: tychobrouwer.lxc_start
   - name: tychobrouwer.matlab
   - name: tychobrouwer.minecraft
+  - name: tychobrouwer.node_exporter
   - name: tychobrouwer.nordvpn
   - name: tychobrouwer.pbs
   - name: tychobrouwer.pihole

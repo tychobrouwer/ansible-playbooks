@@ -68,13 +68,10 @@
         name: python3-pip
         state: present
 
-    - name: Set pip configuration
-      ansible.builtin.command: pip3 config set global.break-system-packages True
-      changed_when: false
-
     - name: Install icloudpd python package
       ansible.builtin.pip:
         name: icloudpd
+        extra_args: --break-system-packages
         state: present
 
     - name: Set journald log size

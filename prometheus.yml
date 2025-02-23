@@ -9,11 +9,21 @@
   roles:
     - role: tychobrouwer.ssh
 
-    - role: tychobrouwer.git
-
     - role: tychobrouwer.prometheus
       prometheus_template: templates/prometheus.yml.j2
       prometheus_pve_exporter: true
       prometheus_pve_user: ci@pve
       prometheus_pve_password: "{{ proxmox_ci_password }}"
       prometheus_pve_exporter_port: 9221
+      prometheus_pve_exporter_address: 127.0.0.1
+
+- name: Install Prometheus Node Exporter
+  hosts:
+    - proxmox_lxc_running
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.node_exporter

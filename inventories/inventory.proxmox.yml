@@ -22,3 +22,4 @@ compose:
 groups:
   debian: "proxmox_ostype == 'debian'"
   centos: "proxmox_ostype == 'centos'"
+  proxmox_lxc_running: "proxmox_vmtype == 'lxc' and proxmox_status == 'running'"
