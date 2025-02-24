@@ -20,6 +20,8 @@
 - name: Install Prometheus Node Exporter
   hosts:
     - proxmox_lxc_running
+    - pve
+    - docker
 
   vars_files:
     - vars.yml
