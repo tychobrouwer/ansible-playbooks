@@ -202,6 +202,33 @@ http:
     pve-backup:
       entryPoints:
         - web-secure
+      rule: "Host (`pve-backup.{{ domain }}`)"
+      middlewares:
+        - authelia
+      service: pve-backup
+      tls: {}
+
+    jellyfin:
+      entryPoints:
+        - web-secure
+      rule: "Host(`jellyfin.{{ domain }}`)"
+      middlewares:
+        - authelia
+      service: jellyfin
+      tls: {}
+
+    gitea:
+      entryPoints:
+        - web-secure
+      rule: "Host(`gitea.{{ domain }}`)"
+      middlewares:
+        - authelia
+      service: gitea
+      tls: {}
+
+    wiki:
+      entryPoints:
+        - web-secure
       rule: "Host(`wiki.{{ domain }}`)"
       middlewares:
         - authelia
