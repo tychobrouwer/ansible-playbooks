@@ -2,6 +2,7 @@
 roles:
   - name: tychobrouwer.ark_survival
   - name: tychobrouwer.arrs
+  - name: tychobrouwer.dashboard
   - name: tychobrouwer.docker
   - name: tychobrouwer.factorio
   - name: tychobrouwer.git
