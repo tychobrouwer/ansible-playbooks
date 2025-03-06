@@ -1,0 +1,285 @@
+---
+title: Dashboard
+
+layout:
+  sections: 4
+  width: 2
+  sectionPadding: 20
+  cardPadding: 10
+
+style:
+  background: "#181926"
+  sectionBackground: "#24273a"
+  cardBackground: "#181926"
+  cardHover: "#c6a0f6"
+  text: "#cad3f5"
+  textHover: "#24273a"
+  accent: "#c6a0f6"
+  statusOnline: "#a6da95"
+  statusOffline: "#121212"
+
+linkSections:
+  - title: Home Lab
+    links:
+      - title: Proxmox
+        url: https://pve.{{ domain }}
+        icon: hl-proxmox
+        status: true
+
+      - title: Passbolt
+        url: https://passbolt.{{ domain }}
+        icon: hl-passbolt
+        status: true
+
+      - title: Grafana
+        url: https://grafana.{{ domain }}
+        icon: hl-grafana
+        status: true
+
+      - title: Pi-hole
+        url: https://pihole.{{ domain }}
+        icon: hl-pi-hole
+        status: true
+
+      - title: Pi-hole 2
+        url: https://pihole-2.{{ domain }}
+        icon: hl-pi-hole
+        status: true
+
+      - title: Wireguard
+        url: https://wireguard.{{ domain }}
+        icon: hl-wireguard
+        status: true
+
+      - title: Portainer
+        url: https://portainer.{{ domain }}
+        icon: hl-portainer
+        status: true
+
+      - title: Sonarr
+        url: https://sonarr.{{ domain }}
+        icon: hl-sonarr
+        status: true
+
+      - title: Radarr
+        url: https://radarr.{{ domain }}
+        icon: hl-radarr
+        status: true
+
+      - title: Bazarr
+        url: https://bazarr.{{ domain }}
+        icon: hl-bazarr
+        status: true
+
+      - title: Readarr
+        url: https://readarr.{{ domain }}
+        icon: hl-readarr
+        status: true
+
+      - title: Prowlarr
+        url: https://prowlarr.{{ domain }}
+        icon: hl-prowlarr
+        status: true
+
+      - title: FlareSolverr
+        url: http://10.12.12.106:8191
+        icon: hl-flaresolverr
+        status: true
+
+      - title: qBittorrent
+        url: https://torrent.{{ domain }}
+        icon: hl-qbittorrent
+        status: true
+
+      - title: Traefik
+        url: http://10.12.12.115:8080
+        icon: hl-traefik
+        status: true
+
+      - title: Proxmox Backup
+        url: https://pve-backup.{{ domain }}
+        icon: hl-proxmox
+        status: true
+
+      - title: Router
+        url: http://10.12.12.1/
+        icon: hl-asus-router
+        status: true
+
+  - title: Personal
+    links:
+      - title: Google Calendar
+        url: https://calendar.google.com
+        icon: hl-google-calendar
+
+      - title: Portfolio
+        url: https://www.{{ domain }}
+        icon: fas-globe
+        status: true
+
+      - title: Youtube
+        url: https://www.youtube.com
+        icon: hl-youtube
+
+      - title: Netflix
+        url: https://www.netflix.com
+        icon: hl-netflix
+
+      - title: Jellyfin
+        url: https://jellyfin.{{ domain }}
+        icon: hl-jellyfin
+        status: true
+
+      - title: Spotify
+        url: https://open.spotify.com
+        icon: hl-spotify
+
+      - title: Home Assistant
+        url: https://ha.{{ domain }}
+        icon: hl-home-assistant
+        status: true
+
+      - title: Tandoor
+        url: https://tandoor.{{ domain }}
+        icon: hl-tandoor-recipes
+        status: true
+
+      - title: iCloud
+        url: https://www.icloud.com
+        icon: hl-icloud
+
+      - title: Reddit
+        url: https://www.reddit.com/
+        icon: hl-reddit
+
+      - title: Linkedin
+        url: https://www.linkedin.com/in/tycho-brouwer-6306ba274
+        icon: hl-linkedin
+
+      - title: IMDB
+        url: https://www.imdb.com/
+        icon: favicon
+
+      - title: PayPal
+        url: https://www.paypal.com/myaccount/summary
+        icon: hl-paypal
+
+  - title: School
+    links:
+      - title: Canvas
+        url: https://canvas.tue.nl/
+        icon: https://www.instructure.com/sites/default/files/image/2021-12/Canvas_logo_single_mark.png
+
+      - title: Office 365
+        url: https://www.office.com/?auth=2
+        icon: hl-office-365
+
+      - title: Osiris
+        url: https://tue.osiris-student.nl/#/home
+        icon: https://www.caci.nl/wp-content/uploads/2021/03/Osiris_Pyramid_v5.png
+
+      - title: Osiris PlanApp
+        url: https://tue.osiris-planapp.nl/#/
+        icon: https://www.caci.nl/wp-content/uploads/2021/03/Osiris_Pyramid_v5.png
+
+      - title: Overleaf
+        url: https://www.overleaf.com/project
+        icon: hl-overleaf
+
+      - title: Stirling PDF
+        url: https://stirling.{{ domain }}
+        icon: hl-stirling-pdf
+        status: true
+
+      - title: MATLAB
+        url: https://matlab.{{ domain }}
+        icon: https://nl.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/mathworks-logo-membrane.20250206052022769.svg
+        status: true
+
+      - title: DeepL
+        url: https://www.deepl.com/translator
+        icon: https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg
+
+      - title: TU/e Databases
+        url: https://library.tue.nl/AZDatabases/
+        icon: hl-bookstack
+
+      - title: ESBV Panache
+        url: https://esbvpanache.nl/
+        icon: https://esbvpanache.nl/wp-content/uploads/2015/05/254596_10151060894411945_2113449619_n.jpg
+
+      - title: Google Mail
+        url: https://mail.google.com/mail/
+        icon: hl-gmail
+
+      - title: Google Drive
+        url: https://drive.google.com/
+        icon: hl-google-drive
+
+      - title: Dropbox
+        url: https://www.dropbox.com/home
+        icon: hl-dropbox
+
+      - title: Todoist
+        url: https://app.todoist.com/app/inbox
+        icon: hl-todoist
+
+      - title: Google Contacts
+        url: https://contacts.google.com/
+        icon: hl-google-contacts
+
+      - title: Forms Responses
+        url: https://docs.google.com/spreadsheets/d/1GD3rJndGRMM8qIvlFPtQ1gCT1n-p7KTxS9YRP-vl-vs/edit
+        icon: hl-google-forms
+
+      - title: Member Admin
+        url: https://www.dropbox.com/scl/fi/411plz5boru5qd5ry5ebv/Member-Administration-2024-2025.xlsx
+        icon: hl-google-forms
+
+      - title: SSCE DMS
+        url: https://dms.studentensportcentrumeindhoven.nl/members/profile/myprofile
+        icon: https://storage.googleapis.com/static.production.tue.delcom.nl/branding/5c98f4ee-c918-45b2-8981-16a1d4ef1c8c
+
+  - title: Development
+    links:
+      - title: GitHub
+        url: https://github.com/TychoBrouwer?tab=repositories/
+        icon: hl-github-light
+
+      - title: Gitea
+        url: https://gitea.{{ domain }}/
+        icon: hl-gitea
+        status: true
+
+      - title: Cloudflare
+        url: https://dash.cloudflare.com/
+        icon: hl-cloudflare
+
+      - title: Linode
+        url: https://cloud.linode.com/linodes
+        icon: hl-linode
+
+      - title: Namecheap
+        url: https://ap.www.namecheap.com
+        icon: hl-namecheap
+
+      - title: ChatGPT
+        url: https://chat.openai.com
+        icon: hl-chatgpt
+
+      - title: Docker.io
+        url: https://hub.docker.com/repositories/tychobrouwer
+        icon: hl-docker
+
+      - title: npm
+        url: https://www.npmjs.com/~tbrouwer
+        icon: https://static-production.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png
+
+      - title: Font Awesome
+        url: https://fontawesome.com/search
+        icon: hl-fontawesome
+
+      - title: Windows Blog
+        url: https://blogs.windows.com/windows-insider/
+        icon: hl-windows-10
+
