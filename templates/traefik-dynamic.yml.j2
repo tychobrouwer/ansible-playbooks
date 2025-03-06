@@ -19,7 +19,7 @@ http:
     authelia:
       entryPoints:
         - web-secure
-      rule: "Host (`authelia.{{ traefik_root_domain }}`)"
+      rule: "Host (`authelia.{{ domain }}`)"
       service: authelia
       tls: {}
 
@@ -73,14 +73,14 @@ http:
     dashy:
       entryPoints:
         - web-secure
-      rule: "Host (`dash.{{ traefik_root_domain }}`)"
+      rule: "Host (`dash.{{ domain }}`)"
       service: dashy
       tls: {}
 
     grafana:
       entryPoints:
         - web-secure
-      rule: "Host (`grafana.{{ traefik_root_domain }}`)"
+      rule: "Host (`grafana.{{ domain }}`)"
       middlewares:
         - authelia
       service: grafana
@@ -89,7 +89,7 @@ http:
     portainer:
       entryPoints:
         - web-secure
-      rule: "Host (`portainer.{{ traefik_root_domain }}`)"
+      rule: "Host (`portainer.{{ domain }}`)"
       middlewares:
         - authelia
       service: portainer
@@ -98,7 +98,7 @@ http:
     tandoor:
       entryPoints:
         - web-secure
-      rule: "Host (`tandoor.{{ traefik_root_domain }}`)"
+      rule: "Host (`tandoor.{{ domain }}`)"
       middlewares:
         - authelia
       service: tandoor
@@ -107,7 +107,7 @@ http:
     passbolt:
       entryPoints:
         - web-secure
-      rule: "Host (`passbolt.{{ traefik_root_domain }}`)"
+      rule: "Host (`passbolt.{{ domain }}`)"
       service: passbolt
       tls: {}
 
@@ -220,7 +220,7 @@ http:
     matlab:
       entryPoints:
         - web-secure
-      rule: "Host(`matlab.{{ traefik_root_domain }}`)"
+      rule: "Host(`matlab.{{ domain }}`)"
       middlewares:
         - authelia
       service: matlab
