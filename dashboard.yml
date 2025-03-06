@@ -10,7 +10,7 @@
     - role: tychobrouwer.ssh
 
     - role: tychobrouwer.dashboard
-      dashboard_config_template: template/dashboard-config.yml.j2
+      dashboard_config_template: templates/dashboard-config.yml.j2
 
   tasks:
     - name: Set journald log size
