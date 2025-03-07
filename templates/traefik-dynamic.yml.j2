@@ -226,15 +226,6 @@ http:
       service: gitea
       tls: {}
 
-    wiki:
-      entryPoints:
-        - web-secure
-      rule: "Host(`wiki.{{ domain }}`)"
-      middlewares:
-        - authelia
-      service: wiki
-      tls: {}
-
     ha:
       entryPoints:
         - web-secure
@@ -360,11 +351,6 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.109:3000/"
-
-    wiki:
-      loadBalancer:
-        servers:
-          - url: "http://10.12.12.110:3000/"
 
     ha:
       loadBalancer:
