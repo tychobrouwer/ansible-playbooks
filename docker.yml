@@ -10,6 +10,9 @@
     - role: tychobrouwer.ssh
 
     - role: tychobrouwer.docker
+      dashy_enabled: false
+      traefik_enabled: false
+      influxdb_enabled: false
       portainer_root_domain: tbrouwer.com
       portainer_cpus: 2
       portainer_dashy:
