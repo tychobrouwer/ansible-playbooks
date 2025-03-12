@@ -57,7 +57,8 @@ storage:
 
 notifier:
   smtp:
-    username: {{ portainer_notifications.smtp_username }}
-    host: {{ portainer_notifications.smtp_host }}
-    port: 587
-    sender: {{ portainer_notifications.smtp_username }}
+    address: submission://{{ smtp_host }}:{{ smtp_port }}
+    username: {{ smtp_username }}
+    password: {{ smtp_password }}
+    sender: Authelia <{{ smtp_username }}>
+    subject: "[Authelia] {title}"

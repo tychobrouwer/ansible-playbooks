@@ -1,0 +1,31 @@
+---
+- name: Install Semaphore
+  hosts:
+    - semaphore
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: tychobrouwer.ssh
+
+    - role: tychobrouwer.postgres
+      postgres_db_user: semaphore
+      postgres_db_name: semaphoredb
+      postgres_db_pass: "{{ semaphore_db_password }}"
+
+    - role: tychobrouwer.semaphore
+      semaphore_sonfig_template: templates/semaphore.json.j2
+      semaphore_admin_login: admin
+      semaphore_admin_name: Tycho Brouwer
+      semaphore_admin_password: "{{ semaphore_admin_password }}"
+      semaphore_admin_email: "{{ semaphore_admin_email }}"
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

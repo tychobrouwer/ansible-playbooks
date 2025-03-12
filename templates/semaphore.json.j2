@@ -1,0 +1,19 @@
+{
+    "postgres": {
+        "host": "localhost",
+        "name": "semaphoredb",
+        "user": "semaphore",
+        "pass": "{{ semaphore_db_password }}"
+    },
+    "dialect": "postgres",
+    "web_host": "https://semaphore.{{ domain }}",
+    "cookie_hash": "{{ semaphore_cookie_hash }}",
+    "cookie_encryption": "{{ semaphore_cookie_encryption }}",
+    "access_key_encryption": "{{ semaphore_access_key_encryption }}",
+    "email_sender": "{{ smtp_username }}",
+    "email_host": "{{ smtp_host }}",
+    "email_port": "{{ smtp_port }}",
+    "email_username": "{{ smtp_username }}",
+    "email_password": "{{ smtp_password }}",
+    "email_secure": true
+}

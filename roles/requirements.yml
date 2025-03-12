@@ -24,6 +24,7 @@ roles:
   - name: tychobrouwer.proxmox
   - name: tychobrouwer.qbittorrent_nox
   - name: tychobrouwer.samba
+  - name: tychobrouwer.semaphore
   - name: tychobrouwer.ssh
   - name: tychobrouwer.stirlingpdf
   - name: tychobrouwer.traefik
