@@ -244,6 +244,15 @@ http:
       service: matlab
       tls: {}
 
+    semaphore:
+      entryPoints:
+        - web-secure
+      rule: "Host(`semaphore.{{ domain }}`)"
+      middlewares:
+        - authelia
+      service: semaphore
+      tls: {}
+
   services:
     authelia:
       loadBalancer:
@@ -361,6 +370,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.114:8888/"
+    
+    semaphore:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.110:3000/"
 
   middlewares:
     addprefix-pihole:
