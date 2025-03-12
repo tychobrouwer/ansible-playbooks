@@ -1,0 +1,11 @@
+[defaults]
+remote_user = root
+remote_port = 22
+forks = 10
+vault_password_file = {{ semaphore_vault_pass_path }}
+result_format = yaml
+pretty_results = true
+interpreter_python = auto_silent
+
+[connection]
+pipelining = True

@@ -19,6 +19,8 @@
       semaphore_config_template: templates/semaphore.json.j2
       semaphore_admin_login: admin
       semaphore_admin_name: Tycho Brouwer
+      semaphore_ansible_config_template: "templates/semaphore-ansible.cfg.j2"
+      semaphore_vault_pass_path: "/etc/ansible/vault_pass"
 
   tasks:
     - name: Set journald log size

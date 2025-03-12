@@ -15,11 +15,11 @@ want_proxmox_nodes_ansible_host: false
 
 want_facts: true
 compose:
-  ansible_host: proxmox_ipconfig0.ip | default(proxmox_net0.ip) | split("/") | first
+  ansible_host: "proxmox_net0.ip | default('10.12.12.' ~ (proxmox_vmid | default(100) | string)) | split('/') | first"
   ansible_user: "'root'"
-  ansible_python_interpreter: /usr/bin/python3
+  ansible_python_interpreter: "'/usr/bin/python3'"
 
 groups:
   debian: "proxmox_ostype == 'debian'"
   centos: "proxmox_ostype == 'centos'"
-  proxmox_lxc_running: "proxmox_vmtype == 'lxc' and proxmox_status == 'running'"
+  proxmox_accessable: "proxmox_status == 'running' and (proxmox_vmtype == 'lxc' or proxmox_agent == 1)"

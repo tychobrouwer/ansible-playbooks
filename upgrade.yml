@@ -2,12 +2,18 @@
 - name: Upgrade container packages
   serial: 1
   hosts:
-    - proxmox_all_running
+    - proxmox_accessable
     - pve
   ignore_unreachable: true
   ignore_errors: true
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
 
   roles:
     - role: tychobrouwer.upgrade_packages
       upgrade_packages_clean: true
       upgrade_packages_autoremove: true
+
+    - role: tychobrouwer.ssh
