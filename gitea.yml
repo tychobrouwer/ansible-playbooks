@@ -12,7 +12,7 @@
     - role: tychobrouwer.postgres
       postgres_db_user: gitea
       postgres_db_name: giteadb
-      postgres_db_pass: "{{ gitea_db_password }}"
+      postgres_db_password: "{{ gitea_db_password }}"
 
     - role: tychobrouwer.git
 
