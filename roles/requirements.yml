@@ -23,7 +23,7 @@ roles:
   - name: tychobrouwer.lxc_mount
     version: v1.0.0
   - name: tychobrouwer.lxc_nvidia
-    version: v1.0.0
+    version: v1.0.1
   - name: tychobrouwer.lxc_start
     version: v1.0.0
   - name: tychobrouwer.matlab
