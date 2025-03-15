@@ -123,7 +123,7 @@ roles:
   
   - src: https://github.com/tychobrouwer/ansible-semaphore
     scm: git
-    version: v1.0.0
+    version: v1.0.1
     name: semaphore
   
   - src: https://github.com/tychobrouwer/ansible-ssh
