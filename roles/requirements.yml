@@ -1,64 +1,157 @@
 ---
 roles:
-  - name: tychobrouwer.ark_survival
+  
+  - src: https://github.com/tychobrouwer/ansible-ark-survival
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.arrs
+    name: ark_survival
+  
+  - src: https://github.com/tychobrouwer/ansible-arrs
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.dashboard
+    name: arrs
+  
+  - src: https://github.com/tychobrouwer/ansible-dashboard
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.docker
+    name: dashboard
+  
+  - src: https://github.com/tychobrouwer/ansible-docker
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.factorio
+    name: docker
+  
+  - src: https://github.com/tychobrouwer/ansible-factorio
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.git
+    name: factorio
+  
+  - src: https://github.com/tychobrouwer/ansible-git
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.gitea
+    name: git
+  
+  - src: https://github.com/tychobrouwer/ansible-gitea
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.jellyfin
+    name: gitea
+  
+  - src: https://github.com/tychobrouwer/ansible-jellyfin
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.kopia
+    name: jellyfin
+  
+  - src: https://github.com/tychobrouwer/ansible-kopia
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.lighttpd
+    name: kopia
+  
+  - src: https://github.com/tychobrouwer/ansible-lighttpd
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.lxc_mount
+    name: lighttpd
+  
+  - src: https://github.com/tychobrouwer/ansible-lxc-mount
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.lxc_nvidia
-    version: v1.0.1
-  - name: tychobrouwer.lxc_start
+    name: lxc_mount
+  
+  - src: https://github.com/tychobrouwer/ansible-lxc-nvidia
+    scm: git
+    version: v1.2.0
+    name: lxc_nvidia
+  
+  - src: https://github.com/tychobrouwer/ansible-lxc-start
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.matlab
+    name: lxc_start
+  
+  - src: https://github.com/tychobrouwer/ansible-matlab
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.minecraft
+    name: matlab
+  
+  - src: https://github.com/tychobrouwer/ansible-minecraft
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.node_exporter
+    name: minecraft
+  
+  - src: https://github.com/tychobrouwer/ansible-node-exporter
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.nordvpn
+    name: node_exporter
+  
+  - src: https://github.com/tychobrouwer/ansible-nordvpn
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.pbs
+    name: nordvpn
+  
+  - src: https://github.com/tychobrouwer/ansible-pbs
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.pihole
+    name: pbs
+  
+  - src: https://github.com/tychobrouwer/ansible-pihole
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.postgres
+    name: pihole
+  
+  - src: https://github.com/tychobrouwer/ansible-postgres
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.prometheus
+    name: postgres
+  
+  - src: https://github.com/tychobrouwer/ansible-prometheus
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.proxmox
+    name: prometheus
+  
+  - src: https://github.com/tychobrouwer/ansible-proxmox
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.qbittorrent_nox
+    name: proxmox
+  
+  - src: https://github.com/tychobrouwer/ansible-qbittorrent-nox
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.samba
+    name: qbittorrent_nox
+  
+  - src: https://github.com/tychobrouwer/ansible-samba
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.semaphore
+    name: samba
+  
+  - src: https://github.com/tychobrouwer/ansible-semaphore
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.ssh
+    name: semaphore
+  
+  - src: https://github.com/tychobrouwer/ansible-ssh
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.stirlingpdf
+    name: ssh
+  
+  - src: https://github.com/tychobrouwer/ansible-stirlingpdf
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.traefik
+    name: stirlingpdf
+  
+  - src: https://github.com/tychobrouwer/ansible-traefik
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.upgrade_packages
+    name: traefik
+  
+  - src: https://github.com/tychobrouwer/ansible-upgrade-packages
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.wiki_js
+    name: upgrade_packages
+  
+  - src: https://github.com/tychobrouwer/ansible-wiki-js
+    scm: git
     version: v1.0.0
-  - name: tychobrouwer.wireguard
+    name: wiki_js
+  
+  - src: https://github.com/tychobrouwer/ansible-wireguard
+    scm: git
     version: v1.0.0
+    name: wireguard

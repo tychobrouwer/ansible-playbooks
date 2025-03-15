@@ -7,7 +7,7 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
         - { src: /media/file-share, dest: /share/file-share }
@@ -16,7 +16,7 @@
         - { src: /rpool-main/media-share/Transcodes, dest: /share/media-share/Transcodes }
       lxc_mount_lxc_id: 108
 
-    - role: tychobrouwer.lxc_nvidia
+    - role: lxc_nvidia
       lxc_nvidia_lxc_id: 108
       lxc_nvidia_is_host: true
       lxc_nvidia_version: "550.67"
@@ -29,11 +29,11 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.jellyfin
+    - role: jellyfin
 
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /media/file-share, dest: /share/file-share }
@@ -43,7 +43,7 @@
       lxc_mount_lxc_id: 108
       lxc_mount_users: [jellyfin]
 
-    - role: tychobrouwer.lxc_nvidia
+    - role: lxc_nvidia
       lxc_nvidia_lxc_id: 108
       lxc_nvidia_is_host: false
       lxc_nvidia_version: "550.67"
