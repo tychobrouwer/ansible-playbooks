@@ -18,6 +18,8 @@
 
     - role: gitea
       gitea_app_name: "Gitea | Tycho Brouwer"
+      gitea_db_user: gitea
+      gitea_db_name: giteadb
 
   tasks:
     - name: Set journald log size
