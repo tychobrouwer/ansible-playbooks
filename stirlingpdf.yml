@@ -1,6 +1,6 @@
 ---
 - name: Install Stirling PDF
-  hosts: stirlingpdf
+  hosts: stirling-pdf
 
   vars_files:
     - vars.yml
