@@ -133,7 +133,7 @@ roles:
   
   - src: https://github.com/tychobrouwer/ansible-stirlingpdf
     scm: git
-    version: v1.0.0
+    version: v1.0.1
     name: stirlingpdf
   
   - src: https://github.com/tychobrouwer/ansible-traefik
