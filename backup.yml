@@ -7,7 +7,7 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
         - { src: /mnt/backup/pbs-dumps, dest: /mnt/pbs-dumps }
@@ -22,11 +22,11 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.pbs
+    - role: pbs
 
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /mnt/backup/pbs-dumps, dest: /mnt/pbs-dumps }
@@ -34,7 +34,7 @@
       lxc_mount_lxc_id: 107
       lxc_mount_users: [backup]
 
-    - role: tychobrouwer.kopia
+    - role: kopia
       kopia_path: /mnt/kopia
       kopia_user_uid: 3500
       kopia_group_gid: 3500

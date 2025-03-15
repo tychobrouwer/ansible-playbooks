@@ -12,8 +12,8 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.upgrade_packages
+    - role: upgrade_packages
       upgrade_packages_clean: true
       upgrade_packages_autoremove: true
 
-    - role: tychobrouwer.ssh
+    - role: ssh

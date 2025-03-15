@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.prometheus
+    - role: prometheus
       prometheus_template: templates/prometheus.yml.j2
       prometheus_retention: 365d
       prometheus_pve_exporter: true
@@ -28,4 +28,4 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.node_exporter
+    - role: node_exporter

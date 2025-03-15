@@ -7,7 +7,7 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
@@ -24,9 +24,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Movies, dest: /share/media-share/Movies }
@@ -35,7 +35,7 @@
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
       lxc_mount_lxc_id: 106
 
-    - role: tychobrouwer.arrs
+    - role: arrs
       arrs_media_owner: mountuser
 
   tasks:

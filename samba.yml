@@ -7,7 +7,7 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
         - { src: /media/file-share, dest: /share/file-share }
@@ -27,9 +27,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.samba
+    - role: samba
       samba_username: sambauser
       samba_shares:
         - name: file_share
@@ -49,7 +49,7 @@
           force_user: sambauser
           force_group: sambauser
 
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /media/file-share, dest: /share/file-share }

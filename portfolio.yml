@@ -7,11 +7,11 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.git
+    - role: git
 
-    - role: tychobrouwer.lighttpd
+    - role: lighttpd
       lighttpd_git_source: https://github.com/TychoBrouwer/personal-website-elm.git
       lighttpd_website_name: portfolio
       lighttpd_server_address: https://{{ domain }}

@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.dashboard
+    - role: dashboard
       dashboard_config_template: templates/dashboard-config.yml.j2
 
   tasks:

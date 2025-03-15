@@ -7,7 +7,7 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: false
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }
@@ -30,16 +30,16 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.nordvpn
+    - role: nordvpn
       nordvpn_server: nl900.nordvpn.com.udp1194
 
-    - role: tychobrouwer.qbittorrent_nox
+    - role: qbittorrent_nox
       qbittorrent_nox_user_name: qbittorrent
       qbittorrent_nox_torrent_path: /share/media-share/Torrents
 
-    - role: tychobrouwer.lxc_mount
+    - role: lxc_mount
       lxc_mount_is_lxc: true
       lxc_mount_mounts:
         - { src: /rpool-main/media-share/Torrents, dest: /share/media-share/Torrents }

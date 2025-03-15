@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.docker
+    - role: docker
       dashy_enabled: false
       traefik_enabled: false
       influxdb_enabled: false

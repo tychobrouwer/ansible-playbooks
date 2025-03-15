@@ -9,9 +9,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.pihole
+    - role: pihole
 
   tasks:
     - name: Set journald log size

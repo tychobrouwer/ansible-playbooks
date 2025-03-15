@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.minecraft
+    - role: minecraft
       minecraft_paper_version: 1.20.6
       minecraft_paper_build: 145
       minecraft_java_deb_key: https://apt.corretto.aws/corretto.key

@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.factorio
+    - role: factorio
       factorio_save_name: factory
 
   tasks:

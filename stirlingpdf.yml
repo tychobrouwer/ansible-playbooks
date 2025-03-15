@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.stirlingpdf
+    - role: stirlingpdf
       stirlingpdf_path: /opt/stirlingpdf
       stirlingpdf_build_path: /root/stirlingpdf
       stirlingpdf_java_deb_key: https://apt.corretto.aws/corretto.key

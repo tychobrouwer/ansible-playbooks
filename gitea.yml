@@ -7,16 +7,16 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.postgres
+    - role: postgres
       postgres_db_user: gitea
       postgres_db_name: giteadb
       postgres_db_password: "{{ gitea_db_password }}"
 
-    - role: tychobrouwer.git
+    - role: git
 
-    - role: tychobrouwer.gitea
+    - role: gitea
       gitea_app_name: "Gitea | Tycho Brouwer"
 
   tasks:

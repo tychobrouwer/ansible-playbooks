@@ -7,14 +7,14 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.postgres
+    - role: postgres
       postgres_db_user: wikijs
       postgres_db_name: wikijs
       postgres_db_password: "{{ wiki_js_db_password }}"
 
-    - role: tychobrouwer.wiki_js
+    - role: wiki_js
       wiki_js_db_user: wikijs
       wiki_js_db_name: wikijs
 

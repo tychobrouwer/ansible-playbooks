@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.proxmox
+    - role: proxmox
       proxmox_pbs_client_directories:
           - file-share.pxar:/media/file-share
           - lxc-config.pxar:/etc/pve/lxc

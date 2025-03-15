@@ -8,14 +8,14 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.postgres
+    - role: postgres
       postgres_db_user: semaphore
       postgres_db_name: semaphoredb
       postgres_db_password: "{{ semaphore_db_password }}"
 
-    - role: tychobrouwer.semaphore
+    - role: semaphore
       semaphore_config_template: templates/semaphore.json.j2
       semaphore_admin_login: admin
       semaphore_admin_name: Tycho Brouwer

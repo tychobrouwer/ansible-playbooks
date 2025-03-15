@@ -7,9 +7,9 @@
     - private-vars.yml
 
   roles:
-    - role: tychobrouwer.ssh
+    - role: ssh
 
-    - role: tychobrouwer.wireguard
+    - role: wireguard
       wireguard_host_address: 10.6.0.1/32
       wireguard_peers:
         - public_key: "{{ wireguard_laptop_public_key }}"
