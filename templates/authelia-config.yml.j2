@@ -1,7 +1,6 @@
 ---
 server:
-  host: 0.0.0.0
-  port: 9091
+  address: tcp://:9091/
 
 log:
   level: debug
@@ -37,6 +36,11 @@ totp:
 access_control:
   default_policy: two_factor
   rules:
+    - domain: "ha.{{ domain }}"
+      resources:
+        - "^/api([/?].*)?$"
+      policy: bypass
+
     - domain:
         - "{{ domain }}"
         - "www.{{ domain }}"
@@ -46,9 +50,6 @@ access_control:
         - "jellyfin.{{ domain }}"
       policy: bypass
 
-    - domain: "*.{{ domain }}" 
-      policy: two_factor
-
 session:
   secret: "{{ portainer_authelia.session_secret }}"
 
@@ -56,6 +57,7 @@ session:
     - name: authelia_session
       domain: {{ domain }}
       authelia_url: https://authelia.{{ domain }}
+      default_redirection_url: https://{{ domain }}
       expiration: 1h
       inactivity: 5m
 
@@ -65,8 +67,9 @@ regulation:
   ban_time: 600
 
 storage:
+  encryption_key: "{{ portainer_authelia.storage_secret }}"
+  
   local:
-    encryption_key: "{{ portainer_authelia.storage_secret }}"
     path: /config/db.sqlite3
 
 notifier:

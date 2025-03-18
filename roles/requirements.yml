@@ -1,6 +1,5 @@
 ---
 roles:
-  
   - src: https://github.com/tychobrouwer/ansible-ark-survival
     scm: git
     version: v1.0.0
@@ -18,7 +17,7 @@ roles:
   
   - src: https://github.com/tychobrouwer/ansible-docker
     scm: git
-    version: v1.0.0
+    version: v1.0.1
     name: docker
   
   - src: https://github.com/tychobrouwer/ansible-factorio
