@@ -6,6 +6,10 @@ server:
 log:
   level: debug
 
+identity_validation:
+  reset_password:
+    jwt_secret: "{{ portainer_authelia.jwt_secret }}"
+
 theme: dark
 default_2fa_method: totp
 
@@ -46,13 +50,14 @@ access_control:
       policy: two_factor
 
 session:
+  secret: "{{ portainer_authelia.session_secret }}"
+
   cookies:
     - name: authelia_session
       domain: {{ domain }}
       authelia_url: https://authelia.{{ domain }}
       expiration: 1h
       inactivity: 5m
-      remember_me: 1M
 
 regulation:
   max_retries: 3
@@ -61,13 +66,15 @@ regulation:
 
 storage:
   local:
+    encryption_key: "{{ portainer_authelia.storage_secret }}"
     path: /config/db.sqlite3
 
 notifier:
   disable_startup_check: false
+
   smtp:
-    host: {{ smtp_host }}
-    port: {{ smtp_port }}
+    address: smtp://{{ smtp_host }}:{{ smtp_port }}
     username: {{ smtp_username }}
+    password: {{ smtp_password }}
     sender: Authelia <{{ smtp_username }}>
     subject: "[Authelia] {title}"
