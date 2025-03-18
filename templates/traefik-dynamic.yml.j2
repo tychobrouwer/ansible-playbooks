@@ -27,8 +27,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host (`pve.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: pve
       tls: {}
 
@@ -36,8 +34,6 @@ http:
       entryPoints:
         - web-secure
       rule: "PathPrefix(`/admin`) && Host (`pihole.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: pihole
       tls: {}
 
@@ -46,7 +42,6 @@ http:
         - web-secure
       rule: "Host (`pihole.{{ domain }}`)"
       middlewares:
-        - authelia
         - addprefix-pihole
       service: pihole
       tls: {}
@@ -55,8 +50,6 @@ http:
       entryPoints:
         - web-secure
       rule: "PathPrefix(`/admin`) && Host (`pihole-2.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: pihole_2
       tls: {}
 
@@ -65,7 +58,6 @@ http:
         - web-secure
       rule: "Host (`pihole-2.{{ domain }}`)"
       middlewares:
-        - authelia
         - addprefix-pihole
       service: pihole_2
       tls: {}
@@ -81,8 +73,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host (`grafana.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: grafana
       tls: {}
 
@@ -90,8 +80,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host (`portainer.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: portainer
       tls: {}
 
@@ -99,8 +87,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host (`tandoor.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: tandoor
       tls: {}
 
@@ -115,8 +101,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host (`wireguard.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: wireguard
       tls: {}
 
@@ -124,8 +108,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`torrent.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: torrent
       tls: {}
 
@@ -149,8 +131,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`prowlarr.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: prowlarr
       tls: {}
 
@@ -158,8 +138,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`radarr.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: radarr
       tls: {}
 
@@ -167,8 +145,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`sonarr.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: sonarr
       tls: {}
 
@@ -176,8 +152,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`stirling.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: stirling-pdf
       tls: {}
 
@@ -185,8 +159,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`bazarr.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: bazarr
       tls: {}
 
@@ -194,8 +166,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`readarr.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: readarr
       tls: {}
 
@@ -203,8 +173,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host (`pve-backup.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: pve-backup
       tls: {}
 
@@ -212,8 +180,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`jellyfin.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: jellyfin
       tls: {}
 
@@ -221,8 +187,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`gitea.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: gitea
       tls: {}
 
@@ -230,8 +194,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`ha.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: ha
       tls: {}
 
@@ -239,8 +201,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`matlab.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: matlab
       tls: {}
 
@@ -248,8 +208,6 @@ http:
       entryPoints:
         - web-secure
       rule: "Host(`semaphore.{{ domain }}`)"
-      middlewares:
-        - authelia
       service: semaphore
       tls: {}
 

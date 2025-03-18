@@ -6,7 +6,6 @@ server:
 log:
   level: debug
 
-default_redirection_url: https://authelia.{{ domain }}
 theme: dark
 default_2fa_method: totp
 
@@ -32,33 +31,43 @@ totp:
   secret_size: 32
 
 access_control:
-  default_policy: one_factor
+  default_policy: two_factor
   rules:
-    - domain: "jellyfin.{{ domain }}"
+    - domain:
+        - "{{ domain }}"
+        - "www.{{ domain }}"
+        - "dash.{{ domain }}"
+        - "passbolt.{{ domain }}"
+        - "authelia.{{ domain }}"
+        - "jellyfin.{{ domain }}"
       policy: bypass
 
     - domain: "*.{{ domain }}" 
       policy: two_factor
 
 session:
-  name: authelia_session
-  expiration: 3600
-  inactivity: 300
-  domain: {{ domain }}
+  cookies:
+    - name: authelia_session
+      domain: {{ domain }}
+      authelia_url: https://authelia.{{ domain }}
+      expiration: 1h
+      inactivity: 5m
+      remember_me: 1M
 
 regulation:
   max_retries: 3
-  find_time: 120
-  ban_time: 300
+  find_time: 300
+  ban_time: 600
 
 storage:
   local:
     path: /config/db.sqlite3
 
 notifier:
+  disable_startup_check: false
   smtp:
-    address: submission://{{ smtp_host }}:{{ smtp_port }}
+    host: {{ smtp_host }}
+    port: {{ smtp_port }}
     username: {{ smtp_username }}
-    password: {{ smtp_password }}
     sender: Authelia <{{ smtp_username }}>
     subject: "[Authelia] {title}"
