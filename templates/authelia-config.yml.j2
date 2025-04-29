@@ -1,6 +1,9 @@
 ---
 server:
   address: tcp://:9091/
+  buffers:
+    read: 16384
+    write: 16384
 
 log:
   level: debug
