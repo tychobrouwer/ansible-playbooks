@@ -17,6 +17,7 @@
       prometheus_pve_password: "{{ proxmox_ci_password }}"
       prometheus_pve_exporter_port: 9221
       prometheus_pve_exporter_address: 127.0.0.1
+      prometheus_mimir_template: templates/mimir.yml.j2
 
 - name: Install Prometheus Node Exporter
   hosts:
