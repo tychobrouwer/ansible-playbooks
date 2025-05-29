@@ -1,0 +1,17 @@
+version: v2
+address: ":9000"
+rootUser: "{{ prometheus_minio_root_user }}"
+rootPassword: "{{ prometheus_minio_root_password }}"
+console-address: ":9001"
+certs-dir: "/root/.minio/certs/"
+pools: # Specify the nodes and drives with pools
+  - args:
+      - "/data"
+
+# options:
+#   ftp: # settings for MinIO to act as an ftp server
+#     address: ":8021"
+#     passive-port-range: "30000-40000"
+#   sftp: # settings for MinIO to act as an sftp server
+#     address: ":8022"
+#     ssh-private-key: "/home/user/.ssh/id_rsa"
