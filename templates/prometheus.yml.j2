@@ -40,3 +40,6 @@ scrape_configs:
     static_configs:
       - targets:
         - "{{ hostvars['traefik']['ansible_host'] }}:8082"
+
+rules_files:
+  - "prometheus_rules.yml"

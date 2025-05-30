@@ -11,6 +11,7 @@
 
     - role: prometheus
       prometheus_template: templates/prometheus.yml.j2
+      prometheus_rules_template: templates/prometheus_rules.yml.j2
       prometheus_retention: 365d
       prometheus_pve_exporter: true
       prometheus_pve_user: ci@pve

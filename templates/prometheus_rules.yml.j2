@@ -1,0 +1,70 @@
+# groups:
+#   - name: pve_cpu_metrics
+#     interval: 30s
+#     rules:
+#       - record: pve:cpu_usage_ratio
+#         expr: (pve_cpu_usage_ratio / pve_cpu_usage_limit) * on(id, instance) group_left(name, type) pve_guest_info
+
+#   - name: pve_memory_metrics
+#     interval: 30s
+#     rules:
+#       - record: pve:memory_usage_ratio
+#         expr: (pve_memory_usage_bytes / pve_memory_size_bytes) * on(id, instance) group_left(name, type) pve_guest_info
+
+#   - name: pve_network_metrics
+#     interval: 30s
+#     rules:
+#       - record: pve:network_receive_rate
+#         expr: rate(pve_network_receive_bytes[5m]) * on(id, instance) group_left(name, type) pve_guest_info
+        
+#       - record: pve:network_transmit_rate
+#         expr : rate(pve_network_transmit_bytes[5m]) * on(id, instance) group_left(name, type) pve_guest_info
+
+#   - name: pve_disk_io_metrics
+#     interval: 30s
+#     rules:
+#       - record: pve:disk_write_rate
+#         expr: rate(pve_disk_write_bytes[5m]) * on(id, instance) group_left(name, type) pve_guest_info
+
+#       - record: pve:disk_read_rate
+#         expr: rate(pve_disk_read_bytes[5m]) * on(id, instance) group_left(name, type) pve_guest_info
+
+#   - name: pve_lxc_disk_usage_metrics
+#     interval: 60s
+#     rules:
+#       - record: pve:lxc_filesystem_usage_raw
+#         expr: |
+#           label_replace(
+#             1 - (
+#               node_filesystem_avail_bytes{mountpoint="/",fstype!="rootfs",device=~"rpool/data/subvol-[0-9]+-disk-0"}
+#               / on(device)
+#               node_filesystem_size_bytes{mountpoint="/",fstype!="rootfs",device=~"rpool/data/subvol-[0-9]+-disk-0"}
+#             ),
+#             "id", "lxc/$1", "device", "rpool/data/subvol-([0-9]+)-disk-0"
+#           )
+
+#       - record: pve:lxc_filesystem_usage
+#         expr: pve:lxc_filesystem_usage_raw * on(id) group_left(name, type) pve_guest_info{type="lxc"}
+
+#   - name: pve_storage_metrics
+#     interval: 60s
+#     rules:
+#       - record: pve:storage_usage_bytes
+#         expr: |
+#           sum(
+#             pve_disk_usage_bytes{id=~"storage/.+"}
+#             * on (id, instance)
+#             group_left(storage)
+#             pve_storage_info
+#           ) by (id)
+
+#       - record: pve:storage_free_bytes
+#         expr: |
+#           sum(
+#             (
+#               pve_disk_size_bytes{id=~"storage/.+"} - pve_disk_usage_bytes{id=~"storage/.+"}
+#             )
+#             * on (id, instance)
+#             group_left(storage)
+#             pve_storage_info
+#           ) by (id, storage)
