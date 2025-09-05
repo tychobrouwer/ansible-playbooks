@@ -107,7 +107,7 @@ roles:
   
   - src: https://github.com/tychobrouwer/ansible-proxmox
     scm: git
-    version: v1.0.0
+    version: v1.0.2
     name: proxmox
   
   - src: https://github.com/tychobrouwer/ansible-qbittorrent-nox
@@ -142,8 +142,13 @@ roles:
   
   - src: https://github.com/tychobrouwer/ansible-upgrade-packages
     scm: git
-    version: v1.0.0
+    version: v1.0.5
     name: upgrade_packages
+
+  - src: https://github.com/tychobrouwer/ansible-wanderer
+    scm: git
+    version: v1.0.8
+    name: wanderer
   
   - src: https://github.com/tychobrouwer/ansible-wiki-js
     scm: git

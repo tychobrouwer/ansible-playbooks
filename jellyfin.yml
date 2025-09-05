@@ -19,7 +19,7 @@
     - role: lxc_nvidia
       lxc_nvidia_lxc_id: 108
       lxc_nvidia_is_host: true
-      lxc_nvidia_version: "550.67"
+      lxc_nvidia_version: "580.82.07"
 
 - name: Install Jellyfin
   hosts: jellyfin
@@ -46,7 +46,7 @@
     - role: lxc_nvidia
       lxc_nvidia_lxc_id: 108
       lxc_nvidia_is_host: false
-      lxc_nvidia_version: "550.67"
+      lxc_nvidia_version: "580.82.07"
 
   tasks:
     - name: Set journald log size

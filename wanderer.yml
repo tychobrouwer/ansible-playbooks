@@ -1,0 +1,23 @@
+---
+- name: Install Wanderer
+  hosts: wanderer
+
+  vars_files:
+    - vars.yml
+    - private-vars.yml
+
+  roles:
+    - role: ssh
+
+    - role: wanderer
+      wanderer_disable_signup: true
+      wanderer_private_instance: true
+      wanderer_origin: https://wanderer.{{ domain }}
+
+  tasks:
+    - name: Set journald log size
+      ansible.builtin.lineinfile:
+        path: /etc/systemd/journald.conf
+        line: SystemMaxUse=512M
+        regexp: ^SystemMaxUse=
+        insertafter: "[Journal]"

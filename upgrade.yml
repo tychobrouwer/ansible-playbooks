@@ -3,7 +3,8 @@
   serial: 1
   hosts:
     - proxmox_accessable
-    - pve
+    # - pve
+    
   ignore_unreachable: true
   ignore_errors: true
 
@@ -15,5 +16,6 @@
     - role: upgrade_packages
       upgrade_packages_clean: true
       upgrade_packages_autoremove: true
+      upgrade_to_trixie: true
 
     - role: ssh

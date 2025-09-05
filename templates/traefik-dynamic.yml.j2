@@ -211,6 +211,13 @@ http:
       service: semaphore
       tls: {}
 
+    wanderer:
+      entryPoints:
+        - web-secure
+      rule: "Host(`wanderer.{{ domain }}`)"
+      service: wanderer
+      tls: {}
+
   services:
     authelia:
       loadBalancer:
@@ -333,6 +340,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.12.12.110:3000/"
+
+    wanderer:
+      loadBalancer:
+        servers:
+          - url: "http://10.12.12.119:3000/"
 
   middlewares:
     addprefix-pihole:
